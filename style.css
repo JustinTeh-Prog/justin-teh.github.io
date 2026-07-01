@@ -1012,6 +1012,27 @@ body { zoom: 0.8; }
 .subhead { margin: 26px 0 14px; }
 .subhead:first-of-type { margin-top: 4px; }
 
+/* --- Phones: pack academic/internship cards into a 2-up grid so the list
+       isn't one long single column. Flagship stays full-width. --- */
+@media (max-width: 560px) {
+  #work .cards,
+  #work .cards.mini { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  #cards-featured { grid-template-columns: 1fr; }
+  #work .card-body { padding: 11px 12px 13px; }
+  #work .card h3,
+  #work .cards.mini .card h3 { font-size: 0.9rem; line-height: 1.16; }
+  .card-eyebrow { font-size: 0.55rem; margin-bottom: 5px; }
+  .card-tagline {
+    font-size: 0.76rem; line-height: 1.38;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+}
+@media (max-width: 380px) {
+  #work .cards,
+  #work .cards.mini { gap: 10px; }
+  #work .card-body { padding: 9px 10px 11px; }
+}
+
 /* --- Highlights: white-body cards (image top, readable text below) --- */
 .hl-card { background: #fff; display: flex; flex-direction: column; }
 .hl-card:not(.is-active) { filter: brightness(0.98); }

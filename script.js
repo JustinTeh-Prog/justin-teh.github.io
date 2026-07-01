@@ -76,7 +76,7 @@
     ] }
   ];
 
-  var IADL = "assets/Project1_IADL/";
+  var IADL = "assets/Acad/Project1_IADL/";
   var ACAD = "assets/Acad/";
   var EX = "assets/Exchange/";
   var INTERN = "assets/Intern/EnjoyMusic/";
@@ -96,7 +96,7 @@
       results: "The project achieved objective motion and force data capture for an interactive rehabilitation task, improved force sensing accuracy to approximately ±0.5 N, explored electroluminescent marker improvements for better tracking, and supported a patent filing through IP2SG. The project was also presented in the ARTSIC context.",
       demonstrates: "Assistive technology development, sensor integration, computer vision, rehabilitation-focused design, and the ability to translate a biomedical problem into a working prototype.",
       evidence: [
-        { src: IADL + "IADL_poster.jpg", alt: "Full IADL project poster", caption: "Full project poster" },
+        { src: IADL + "Poster.webp", alt: "Full IADL project poster", caption: "Full project poster" },
         { src: IADL + "IADL (1).jpeg", alt: "IADL device prototype and setup", caption: "Prototype & setup" },
         { src: IADL + "IADL (2).webp", alt: "IADL interface and data capture", caption: "Interface / data capture" },
         { src: IADL + "IADL (3).webp", alt: "IADL motion tracking detail", caption: "Motion tracking detail" },
@@ -170,8 +170,8 @@
       stack: ["Life Cycle Analysis", "Functional Unit Definition", "Material Stage", "Use Stage", "End-of-Life Stage", "Energy Impact Estimation"],
       results: "Created a comparative sustainability analysis that weighed trade-offs across disposable, biodegradable, and reusable product options.",
       evidence: [
-        { src: ACAD + "LCA/Impact-Assessment.webp", alt: "Life-cycle impact assessment", caption: "Impact assessment" },
-        { src: ACAD + "LCA/LCA-Calculation.webp", alt: "Life-cycle analysis calculation table", caption: "LCA calculation" }
+        { src: ACAD + "LCA/Impact Assessment.webp", alt: "Life-cycle impact assessment", caption: "Impact assessment" },
+        { src: ACAD + "LCA/LCA Calculation.webp", alt: "Life-cycle analysis calculation table", caption: "LCA calculation" }
       ],
       links: []
     },
@@ -205,7 +205,7 @@
       stack: ["Python", "Data Cleaning", "Linear Regression", "Correlation Matrix", "Feature Engineering", "Scenario Modelling", "Transport CO₂"],
       results: "Created a model concept for forecasting emissions and evaluating what-if transport mode-shift scenarios.",
       evidence: [
-        { src: ACAD + "ML/Feature-Prediction.webp", alt: "Feature prediction results from the CO\u2082 model", caption: "Feature Prediction" }
+        { src: ACAD + "ML/Feature Prediction.webp", alt: "Feature prediction results from the CO\u2082 model", caption: "Feature Prediction" }
       ],
       links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1pdLxPyg57m73bAovpHYkQGSFHYhPGePS/view?usp=sharing" }]
     },
@@ -222,8 +222,8 @@
       results: "Implemented must-have features including a personal case tracker, college list builder, and deadline / requirement tracker. The team resolved an “App Not Responding” database issue using pagination with infinite scrolling.",
       evidence: [
         { src: ACAD + "UniTrack/Poster.webp", alt: "Full UniTrack project poster", caption: "Full project poster" },
-        { src: ACAD + "UniTrack/event.jpg", alt: "UniTrack showcase event", caption: "Showcase event" },
-        { src: ACAD + "UniTrack/team-booth.jpg", alt: "UniTrack team and booth", caption: "Team & booth" }
+        { src: ACAD + "UniTrack/event picture.jpg", alt: "UniTrack showcase event", caption: "Showcase event" },
+        { src: ACAD + "UniTrack/team & booth.jpg", alt: "UniTrack team and booth", caption: "Team & booth" }
       ],
       clips: [],
       links: [{ label: "App demo (video)", href: "https://drive.google.com/file/d/1OWoS8dMoi8M2Imk2-Lxw_v2AG_b2kzqj/view?usp=sharing" }]
@@ -240,7 +240,7 @@
       stack: ["HashMap", "Dictionary of Objects", "Ordered Statistics Tree Concept", "System Design", "Loyalty Logic", "Reward Cycles", "Product Mechanics"],
       results: "Produced a structured proposal for a reward ecosystem balancing user motivation, platform activity, and long-term recognition.",
       evidence: [
-        { src: ACAD + "RewardNet/Overview-Datastructure.webp", alt: "RewardNet overview data structure", caption: "System data structure" }
+        { src: ACAD + "RewardNet/Overview Datastructure.webp", alt: "RewardNet overview data structure", caption: "System data structure" }
       ],
       links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1gJYdDXVYQgakbJUU2_4waoBEdzbr8VRM/view?usp=sharing" }]
     },
@@ -284,7 +284,7 @@
       title: "DIVE Immersion at Chongqing University: 心间 | Close to Heart",
       tags: ["Global Exchange", "Human-Centred Design", "AI-Powered", "Product Design"],
       summary: "A cross-cultural design project exploring companionship and reassurance for empty-nest elderly residents in China.",
-      feature: { src: EX + "CQU.webp", alt: "Close to Heart eldercare companion concept at Chongqing University" },
+      feature: { src: EX + "GEO_CQU.webp", alt: "Close to Heart eldercare companion concept at Chongqing University" },
       problem: "Empty-nest elderly residents may experience loneliness, digital fatigue, reluctance to disturb their children, and barriers to complex app-based systems.",
       process: "Worked in a cross-cultural student team to define user insights, generate concepts, study precedent products, and develop a speech-based sentimental companion concept.",
       solution: "“心间 | Close to Heart” is a non-robotic, familiar, speech-based companion concept designed to provide delightful everyday companionship and timely reassurance for families. It receives microphone input, converts speech to text, interprets context through NLU and personalisation, plans tone by dialect, politeness, pacing and length, composes a reply, and outputs Mandarin speech — with future routine nudges, quiet hours, family status updates, and emergency tool-calling.",
@@ -307,9 +307,9 @@
         { src: ACAD + "TIIDE_GenAI/Final-Poster.webp", alt: "Generations of Beauty final campaign poster", caption: "Final campaign poster" },
         { src: ACAD + "TIIDE_GenAI/Presentation.webp", alt: "GenAI beauty campaign presentation", caption: "Campaign presentation" },
         { src: ACAD + "TIIDE_GenAI/Pubs-Collateral.webp", alt: "Campaign publications and collateral", caption: "Publications & collateral" },
-        { src: ACAD + "TIIDE_GenAI/T2I-LoRa.webp", alt: "Text-to-image and LoRA generation workflow", caption: "Text-to-image + LoRA workflow" },
+        { src: ACAD + "TIIDE_GenAI/T2I+LoRa.webp", alt: "Text-to-image and LoRA generation workflow", caption: "Text-to-image + LoRA workflow" },
         { src: ACAD + "TIIDE_GenAI/flux1kontext.webp", alt: "FLUX.1 Kontext image editing workflow", caption: "FLUX.1 Kontext editing" },
-        { src: EX + "TIIDE_GrpPic.jpg", alt: "TIIDE exchange team group photo", caption: "TIIDE exchange team" }
+        { src: EX + "TIIDE/TIIDE_Project.webp", alt: "TIIDE exchange team project", caption: "TIIDE exchange project" }
       ],
       links: [
         { label: "TIIDE programme certificate (PDF)", href: "https://drive.google.com/file/d/1MP41Cttm8QnH3nRn4Hg3X4TcNUpJGu0g/view?usp=sharing" },
@@ -884,7 +884,15 @@
   function closeMobileNav() { navList.classList.remove("is-open"); navToggle.setAttribute("aria-expanded", "false"); }
 
   document.querySelectorAll("[data-target]").forEach(function (btn) {
-    btn.addEventListener("click", function () { scrollToId(btn.getAttribute("data-target")); closeMobileNav(); });
+    btn.addEventListener("click", function () {
+      var t = btn.getAttribute("data-target");
+      // Move the highlight straight to the destination and freeze the
+      // scrollspy so it doesn't light up every section we scroll past.
+      spyLock = true;
+      setActiveNav(t === "top" ? "about" : t);
+      scrollToId(t);
+      closeMobileNav();
+    });
   });
   navToggle.addEventListener("click", function () {
     var open = navList.classList.toggle("is-open");
@@ -892,18 +900,31 @@
   });
 
   // Scrollspy — highlight the section currently in view
+  var spyLock = false;
+  var spyIdle = null;
+  function setActiveNav(current) {
+    navLinks.forEach(function (l) {
+      var on = l.getAttribute("data-target") === current;
+      l.setAttribute("aria-current", on ? "true" : "false");
+      l.classList.toggle("is-current", on);
+    });
+  }
   function spy() {
+    // While a click-to-scroll is animating, keep the highlight pinned to the
+    // clicked target so it doesn't skip through the sections in between.
+    // Release once scrolling has settled.
+    if (spyLock) {
+      clearTimeout(spyIdle);
+      spyIdle = setTimeout(function () { spyLock = false; spy(); }, 130);
+      return;
+    }
     var pos = window.scrollY + navOffset() + 8;
     var current = sectionIds[0];
     for (var i = 0; i < sectionIds.length; i++) {
       var sec = document.getElementById(sectionIds[i]);
       if (sec && (sec.getBoundingClientRect().top + window.scrollY) <= pos) current = sectionIds[i];
     }
-    navLinks.forEach(function (l) {
-      var on = l.getAttribute("data-target") === current;
-      l.setAttribute("aria-current", on ? "true" : "false");
-      l.classList.toggle("is-current", on);
-    });
+    setActiveNav(current);
   }
 
   // Reveal everything currently in view + observe the rest
