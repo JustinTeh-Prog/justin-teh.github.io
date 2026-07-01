@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Teh — Arts × Technology Portfolio</title>
+  <meta name="description" content="Justin Teh — Creative Technologist. Computer Science & Design student blending software, AI, IoT, human-centred design and live arts production." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Organic background layers -->
+  <div class="bg-field" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="site-nav">
+    <div class="wrap">
+      <nav class="nav-inner" aria-label="Primary">
+        <a class="brand" href="#about" data-tab-link="about">
+          <span class="brand-mark">JT</span>
+          <span class="brand-name">Justin Teh<span>Arts × Technology</span></span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="tablist">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="tablist" id="tablist" role="tablist">
+          <li role="presentation"><button class="tab-btn" role="tab" id="tab-about" aria-controls="about" aria-selected="true">About Me</button></li>
+          <li role="presentation"><button class="tab-btn" role="tab" id="tab-work" aria-controls="work" aria-selected="false">Tech Portfolio</button></li>
+          <li role="presentation"><button class="tab-btn" role="tab" id="tab-arts" aria-controls="arts" aria-selected="false">Arts Portfolio</button></li>
+          <li role="presentation"><button class="tab-btn" role="tab" id="tab-contact" aria-controls="contact" aria-selected="false">Contact</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ============ ABOUT ME ============ -->
+    <section class="panel is-active" id="about" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
+      <div class="hero glass">
+        <div class="hero-text">
+          <p class="hero-positioning">Creative Technologist · Computer Science &amp; Design Student · Arts × Technology Builder</p>
+          <h1>Justin <em>Teh</em></h1>
+          <p class="hero-tagline">Building human-centred systems where software, AI, hardware, and live production meet.</p>
+          <p class="hero-desc">Justin Teh is a Computer Science and Design undergraduate at SUTD with a Biomedical Engineering foundation, combining software, AI, IoT, prototyping, and live arts production to create meaningful technical and experiential systems.</p>
+        </div>
+        <div class="hero-portrait">
+          <!-- Update path here if the portrait filename changes -->
+          <img src="assets/Personal/Personal (2).JPG" alt="Portrait of Justin Teh" loading="eager" />
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <article class="narrative glass">
+          <h3>Objective</h3>
+          <p>I am a Computer Science and Design student at the Singapore University of Technology and Design with a Biomedical Engineering diploma foundation. My work sits at the intersection of software, AI, IoT, assistive technology, and live arts production. I enjoy building human-centred systems that are technically reliable, visually thoughtful, and meaningful to the people who use or experience them.</p>
+          <h3>Arts × Technology</h3>
+          <p>I see technology not only as a tool for efficiency, but also as a medium for care, storytelling, and atmosphere. My projects range from rehabilitation assessment devices and IoT dashboards to GenAI campaign systems, Android applications, lighting design, and immersive entertainment workflows. Across these experiences, I am most interested in how engineering discipline and creative direction can come together to shape better human experiences.</p>
+          <h3>Leadership &amp; Trust</h3>
+          <p>Outside technical projects, I have led student teams, supported arts communities, and worked behind the scenes on productions where reliability matters. I value clear communication, careful preparation, and service-oriented leadership. I am drawn to people and projects that care about both execution quality and human impact.</p>
+        </article>
+
+        <aside class="micro-cards" aria-label="Quick facts">
+          <div class="micro glass"><span class="dot"></span><span>Based in Singapore</span></div>
+          <div class="micro glass"><span class="dot"></span><span>SUTD Computer Science and Design</span></div>
+          <div class="micro glass"><span class="dot"></span><span>Biomedical Engineering foundation</span></div>
+          <div class="micro glass"><span class="dot"></span><span>Arts production and lighting background</span></div>
+          <div class="micro glass"><span class="dot"></span><span>Interested in AI, software, IoT, and immersive experiences</span></div>
+        </aside>
+      </div>
+
+      <div class="skills-block glass">
+        <h3>Core Technical Skills</h3>
+        <div class="cloud" id="cloud-technical"></div>
+      </div>
+      <div class="skills-block glass">
+        <h3>Core Soft &amp; Creative Skills</h3>
+        <div class="cloud creative" id="cloud-creative"></div>
+      </div>
+    </section>
+
+    <!-- ============ COMPILED PORTFOLIO / WORK ============ -->
+    <section class="panel" id="work" role="tabpanel" aria-labelledby="tab-work" tabindex="0">
+      <div class="section-head">
+        <span class="eyebrow">Tech Portfolio</span>
+        <h2 class="section-title">Selected Work &amp; Projects</h2>
+        <p class="section-lead">A cross-section of engineering, AI, IoT, biomedical/product, and human-centred design work. Filter by collection or focus area, then open any project for the full problem, process, stack, and evidence.</p>
+      </div>
+
+      <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+
+      <h3 class="subhead">Flagship &amp; Industry</h3>
+      <div class="cards" id="cards-flagship"></div>
+
+      <h3 class="subhead">Academic Projects &amp; Design Studies</h3>
+      <div class="cards mini" id="cards-academic"></div>
+
+      <h3 class="subhead">Global Exchange · AI, Culture &amp; Creative Technology</h3>
+      <div class="cards" id="cards-exchange"></div>
+
+      <p class="section-lead" id="no-results" style="display:none; margin-top:24px;">No projects match that filter yet — try another focus area.</p>
+    </section>
+
+    <!-- ============ ARTS PORTFOLIO ============ -->
+    <section class="panel" id="arts" role="tabpanel" aria-labelledby="tab-arts" tabindex="0">
+      <div class="arts-hero glass">
+        <span class="eyebrow">Arts Portfolio</span>
+        <h2>Leader.<span class="sep">·</span>Stage Manager.<span class="sep">·</span>Lights Director.</h2>
+        <p>My arts journey began in student production spaces and grew into a practical language of lighting, staging, coordination, and show execution. Through Temasek Polytechnic's Digital Media &amp; Production Crew, external gigs, and SUTD arts productions, I have worked across lighting direction, technical coordination, stage support, and event leadership. I enjoy the discipline behind live performance: the precision of cues, the trust between crew and performers, and the quiet work that makes an audience experience feel seamless.</p>
+        <div class="arts-openers">
+          <img src="assets/Arts/1Leadership.JPG" alt="Justin leading an arts production team" loading="lazy" />
+          <img src="assets/Arts/1Lights.jpg" alt="Stage lighting rig during a live production" loading="lazy" />
+        </div>
+        <div class="arts-skills" id="arts-skills"></div>
+      </div>
+
+      <h3 class="subhead">Production Credits</h3>
+      <div class="role-filters" id="role-filters" role="group" aria-label="Filter production credits by role"></div>
+      <div class="events" id="events-grid"></div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="panel" id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0">
+      <div class="contact-wrap">
+        <span class="eyebrow" style="justify-content:center;">Contact</span>
+        <h2>Let's build useful systems and <em>memorable experiences.</em></h2>
+        <p>I am open to software, IoT, engineering, AI, creative technology, and arts-production collaborations. I am especially interested in opportunities that combine technical implementation with human-centred impact, thoughtful design, or live experience.</p>
+        <div class="contact-boxes">
+          <a class="contact-box" href="mailto:tnh.justin@gmail.com">
+            <span class="contact-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 6 10-6"></path></svg>
+            </span>
+            <span>
+              <span class="c-label">Email</span><br />
+              <span class="c-value">tnh.justin@gmail.com</span>
+            </span>
+          </a>
+          <a class="contact-box" href="https://www.linkedin.com/in/teh-nian-hong-justin/" target="_blank" rel="noopener noreferrer">
+            <span class="contact-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.34 17.34V10.4H6.04v6.94zM7.19 9.4a1.34 1.34 0 1 0 0-2.68 1.34 1.34 0 0 0 0 2.68m10.15 7.94v-3.8c0-2.04-.44-3.6-2.82-3.6-1.15 0-1.92.63-2.23 1.22h-.03V10.4H9.85v6.94h2.3v-3.43c0-.9.17-1.78 1.29-1.78 1.1 0 1.12 1.03 1.12 1.84v3.37z"></path></svg>
+            </span>
+            <span>
+              <span class="c-label">LinkedIn</span><br />
+              <span class="c-value">Teh Nian Hong, Justin</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>© 2026 Justin Teh.</p>
+    </footer>
+  </main>
+
+  <!-- ============ PROJECT DETAIL MODAL (drawer) ============ -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-panel" id="modal-panel">
+      <div class="modal-hero" id="modal-hero"></div>
+      <button class="modal-close" id="modal-close" aria-label="Close project details">✕</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <div class="lightbox-stage">
+      <button class="lb-close" id="lb-close" aria-label="Close image viewer">✕</button>
+      <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous image">‹</button>
+      <img class="lightbox-img" id="lb-img" alt="" />
+      <button class="lb-btn lb-next" id="lb-next" aria-label="Next image">›</button>
+      <p class="lightbox-cap" id="lb-cap"></p>
+    </div>
+  </div>
+
+  <button class="to-top" id="to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
