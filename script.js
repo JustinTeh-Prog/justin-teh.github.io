@@ -605,7 +605,7 @@
     function startAuto() {
       stopAuto();
       if (prefersReduce || slides.length < 2) return;
-      autoTimer = setInterval(function () { go(idx + 1); }, 5000);
+      autoTimer = setInterval(function () { go(idx + 1); }, 2000);
     }
     // Manual navigation reshuffles then restarts the countdown.
     function nav(n) { go(n); startAuto(); }
@@ -808,15 +808,30 @@
         node.classList.toggle("is-hidden", !show);
       });
       observeReveals();
+      revealBiCheck();
     });
   }
 
-  /* Bidirectional reveal for arts credits — re-animates on up & down scroll */
-  var biIO = ("IntersectionObserver" in window) ? new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) { en.target.classList.toggle("in", en.isIntersecting); });
-  }, { threshold: 0.15 }) : null;
-  if (biIO) document.querySelectorAll(".reveal-bi").forEach(function (n) { biIO.observe(n); });
-  else document.querySelectorAll(".reveal-bi").forEach(function (n) { n.classList.add("in"); });
+  /* Arts credits reveal — scroll-driven with hysteresis.
+     Reveal a card as it rises into view; only re-arm it once it has fully left
+     the viewport. The wide gap between the reveal point and the reset point
+     removes the flicker the old single-threshold observer caused, where a card
+     parked right at 15% visibility would toggle on every tiny scroll. */
+  var revealBiEls = Array.prototype.slice.call(document.querySelectorAll(".reveal-bi"));
+  function revealBiCheck() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = 0; i < revealBiEls.length; i++) {
+      var n = revealBiEls[i];
+      var r = n.getBoundingClientRect();
+      if (r.width === 0 && r.height === 0) continue;        // filtered out / hidden
+      if (!n.classList.contains("in")) {
+        if (r.top < vh * 0.85 && r.bottom > vh * 0.12) n.classList.add("in");
+      } else {
+        if (r.bottom < -80 || r.top > vh + 80) n.classList.remove("in");
+      }
+    }
+  }
+  revealBiCheck();
 
   /* ---------------------------------------------------------
      SCROLL REVEAL (IntersectionObserver) + blob parallax
@@ -1042,6 +1057,19 @@
   var lbCap = $("#lb-cap");
   var lbSet = [];
   var lbIndex = 0;
+  var lbPreloaded = {};
+
+  // Preload every image in an album so stepping through it is instant after the
+  // first open (albums are small — 2–5 photos). Browser caches by URL, so the
+  // later showLb() assignments resolve from cache with no network wait.
+  function preloadSet(set) {
+    if (!set) return;
+    set.forEach(function (item) {
+      if (!item || !item.src || lbPreloaded[item.src]) return;
+      lbPreloaded[item.src] = 1;
+      var im = new Image(); im.decoding = "async"; im.src = item.src;
+    });
+  }
 
   function showLb() {
     if (!lbSet.length) return;
@@ -1063,6 +1091,7 @@
   }
   function openLightbox(set, idx) {
     lbSet = set.slice(); lbIndex = idx || 0;   // copy so we never mutate source data
+    preloadSet(lbSet);                          // warm the whole album up front
     showLb();
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
@@ -1116,6 +1145,7 @@
     toTop.classList.toggle("is-visible", y > 600);
     revealCheck();
     spy();
+    revealBiCheck();
     if (!reduceMotion) {
       for (var i = 0; i < blobs.length; i++) {
         blobs[i].style.transform = "translate3d(0," + (y * (0.05 + i * 0.03)).toFixed(1) + "px,0)";
@@ -1130,18 +1160,28 @@
      Preload cover images so cards appear instantly on scroll
      --------------------------------------------------------- */
   (function preloadCovers() {
-    var urls = [];
-    PROJECTS.forEach(function (p) { if (p.feature && p.feature.src) urls.push(p.feature.src); });
-    EVENTS.forEach(function (ev) { if (ev.images && ev.images[0]) urls.push(ev.images[0].src); });
     var seen = {};
-    var run = function () {
+    function load(urls) {
       urls.forEach(function (u) {
-        if (seen[u]) return; seen[u] = 1;
+        if (!u || seen[u]) return; seen[u] = 1;
         var im = new Image(); im.decoding = "async"; im.src = u;
       });
-    };
-    if ("requestIdleCallback" in window) requestIdleCallback(run, { timeout: 1500 });
-    else setTimeout(run, 250);
+    }
+    // Phase 1 (priority): project + album cover images — what's visible first.
+    var covers = [];
+    PROJECTS.forEach(function (p) { if (p.feature && p.feature.src) covers.push(p.feature.src); });
+    EVENTS.forEach(function (ev) { if (ev.images && ev.images[0]) covers.push(ev.images[0].src); });
+    // Phase 2 (deferred): the remaining album photos, so stepping through any
+    // Production Credits gallery is instant even on the very first open.
+    var rest = [];
+    EVENTS.forEach(function (ev) {
+      (ev.images || []).slice(1).forEach(function (im) { if (im && im.src) rest.push(im.src); });
+    });
+    function idle(fn, t) {
+      if ("requestIdleCallback" in window) requestIdleCallback(fn, { timeout: t });
+      else setTimeout(fn, t / 4);
+    }
+    idle(function () { load(covers); idle(function () { load(rest); }, 2000); }, 1500);
   })();
 
   /* ---------------------------------------------------------
@@ -1156,8 +1196,7 @@
       content.style.overflow = "hidden";
       var animating = false;
       function clear() { content.style.transition = ""; content.style.height = ""; content.style.opacity = ""; animating = false; }
-      summary.addEventListener("click", function (e) {
-        e.preventDefault();
+      function doToggle() {
         if (animating) return;
         animating = true;
         if (det.open) {
@@ -1189,7 +1228,20 @@
             clear();
           });
         }
-      });
+      }
+      summary.addEventListener("click", function (e) { e.preventDefault(); doToggle(); });
+      // Let the philosophy cards close by clicking anywhere on the open card,
+      // not just the summary bezel. Ignore interactive targets and text the
+      // user is actively selecting.
+      if (det.classList.contains("drop-card")) {
+        content.style.cursor = "pointer";
+        content.addEventListener("click", function (e) {
+          if (!det.open || animating) return;
+          if (e.target.closest("a, button, input, textarea, select")) return;
+          if (window.getSelection && String(window.getSelection())) return;
+          doToggle();
+        });
+      }
     });
   })();
 })();
