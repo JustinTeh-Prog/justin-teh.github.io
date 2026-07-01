@@ -88,7 +88,7 @@
       title: "Interactive IADL Rehabilitation Assessment Device",
       tags: ["Assistive Tech", "Research", "IoT / Software Engineering", "Human-Centred Design"],
       summary: "An assistive rehabilitation assessment device that captures motion and force data during activities of daily living through sensor integration, computer vision, and an interactive game-based interface.",
-      feature: { src: IADL + "IADL_Cover.png", alt: "Interactive IADL rehabilitation device in use" },
+      feature: { src: IADL + "IADL_Cover.webp", alt: "Interactive IADL rehabilitation device in use" },
       problem: "Traditional rehabilitation assessments can rely heavily on qualitative observation. This project explored how motion and force data could be captured more objectively during activities of daily living, supporting therapists with clearer performance records across sessions.",
       process: "Worked as part of a Biomedical Engineering major project team to develop and integrate sensing, motion capture, GUI, and data recording components. The project involved iterative hardware improvement, marker detection refinement, data acquisition, and interface development.",
       solution: "Combined wearable force sensing and environmental computer vision. The system used Force Sensitive Resistors with silicone padding, HC-05 serial communication, OpenCV marker tracking, Pygame for the augmented game task, Tkinter GUI, Matplotlib visualisation, and SQLite3 for local patient records and assessment playback.",
@@ -98,11 +98,11 @@
       evidence: [
         { src: IADL + "IADL_poster.jpg", alt: "Full IADL project poster", caption: "Full project poster" },
         { src: IADL + "IADL (1).jpeg", alt: "IADL device prototype and setup", caption: "Prototype & setup" },
-        { src: IADL + "IADL (2).png", alt: "IADL interface and data capture", caption: "Interface / data capture" },
-        { src: IADL + "IADL (3).png", alt: "IADL motion tracking detail", caption: "Motion tracking detail" },
+        { src: IADL + "IADL (2).webp", alt: "IADL interface and data capture", caption: "Interface / data capture" },
+        { src: IADL + "IADL (3).webp", alt: "IADL motion tracking detail", caption: "Motion tracking detail" },
         { src: IADL + "IP2SG_Inbox.jpeg", alt: "Patent-related filing evidence via IP2SG", caption: "Patent filing evidence (IP2SG)" }
       ],
-      links: [{ label: "ARTSIC certificate (PDF)", href: IADL + "ARTSIC_certificate.pdf" }]
+      links: [{ label: "ARTSIC certificate (PDF)", href: "https://drive.google.com/file/d/1akDJdFsLQU41GBk2h1des-EL3fPAMGDz/view?usp=sharing" }]
     },
     {
       id: "astar", group: "internship",
@@ -128,33 +128,33 @@
       tags: ["Research"],
       coverLabel: "",
       summary: "Analysed an audiometry case through air conduction, bone conduction, masking, hearing-loss classification, and implications for speech perception.",
-      feature: { src: ACAD + "PureToneAudiometry/Cover.png", alt: "Pure tone audiometry assessment cover" },
+      feature: { src: ACAD + "PureToneAudiometry/Cover.webp", alt: "Pure tone audiometry assessment cover" },
       problem: "Audiogram interpretation requires understanding the auditory pathway, test method, and difference between conductive, sensorineural, and mixed hearing loss.",
       process: "Reviewed audiometric test principles, interpreted case results, and explained implications on speech perception and behaviour.",
       solution: "Connected air/bone conduction results and masking logic to a structured hearing-loss classification and its real-world communication impact.",
       stack: ["Pure Tone Audiometry", "Air Conduction", "Bone Conduction", "Masking", "Hearing Loss Classification", "Technical Reporting"],
       results: "Produced a structured biomedical report connecting test results to practical hearing and communication implications.",
       evidence: [
-        { src: ACAD + "PureToneAudiometry/FinalAudiogram.png", alt: "Final audiogram plot", caption: "Final audiogram" },
-        { src: ACAD + "PureToneAudiometry/DiagnosisofAudiogram.png", alt: "Audiogram diagnosis breakdown", caption: "Audiogram diagnosis" }
+        { src: ACAD + "PureToneAudiometry/FinalAudiogram.webp", alt: "Final audiogram plot", caption: "Final audiogram" },
+        { src: ACAD + "PureToneAudiometry/DiagnosisofAudiogram.webp", alt: "Audiogram diagnosis breakdown", caption: "Audiogram diagnosis" }
       ],
-      links: [{ label: "Full report (PDF)", href: ACAD + "PureToneAudiometry/PE02_Task1-Report.pdf" }]
+      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1YVn8LxsLhAY9E46pz8WXbh-1HwOsLRO5/view?usp=sharing" }]
     },
     {
       id: "parametric", group: "academic",
       title: "Parametric Modelling with Rhino Grasshopper",
       tags: ["Creative Technology", "Product Design"],
       summary: "A computational design study inspired by stalactite cave formations using parametric terrain logic.",
-      feature: { src: ACAD + "ParametricModel/Cover.png", alt: "Parametric stalactite cave-form model" },
+      feature: { src: ACAD + "ParametricModel/Cover.webp", alt: "Parametric stalactite cave-form model" },
       problem: "Natural cave structures have irregular, organic forms that are difficult to model manually while preserving controlled variation.",
       process: "Explored mathematical and visual parameters to create a cave-like generative form through iterative computational design.",
       solution: "Used sine-based overhang terrain logic and Voronoi-mapped base terrain to simulate stalactite and rocky surface variation.",
       stack: ["Rhino", "Grasshopper", "Parametric Design", "Voronoi", "Sine Functions", "Computational Design"],
       results: "Produced a 3×3 parameter matrix showing how changes in complexity, base resolution, and terrain displacement affect the final form.",
       evidence: [
-        { src: ACAD + "ParametricModel/Slide2.png", alt: "Parametric model process — terrain logic", caption: "Terrain logic" },
-        { src: ACAD + "ParametricModel/Slide3.png", alt: "Parametric model process — form generation", caption: "Form generation" },
-        { src: ACAD + "ParametricModel/Slide5.png", alt: "Parametric model — parameter matrix", caption: "Parameter matrix" }
+        { src: ACAD + "ParametricModel/Slide2.webp", alt: "Parametric model process — terrain logic", caption: "Terrain logic" },
+        { src: ACAD + "ParametricModel/Slide3.webp", alt: "Parametric model process — form generation", caption: "Form generation" },
+        { src: ACAD + "ParametricModel/Slide5.webp", alt: "Parametric model — parameter matrix", caption: "Parameter matrix" }
       ], links: []
     },
     {
@@ -163,15 +163,15 @@
       tags: ["Sustainability", "Research", "Data / Modelling"],
       coverLabel: "",
       summary: "Compared single-use PET cups, biodegradable bamboo cups, and reusable polycarbonate cups through life-cycle analysis.",
-      feature: { src: ACAD + "LCA/Cover.png", alt: "Life cycle analysis of disposable, biodegradable, and reusable cups" },
+      feature: { src: ACAD + "LCA/Cover.webp", alt: "Life cycle analysis of disposable, biodegradable, and reusable cups" },
       problem: "Sustainable product decisions require evaluating environmental impact across material, use, and end-of-life stages rather than relying on surface-level assumptions.",
       process: "Analysed product alternatives, defined assumptions, compared energy impact, and documented life-cycle stages.",
       solution: "Built a comparative framework across material, use, and end-of-life stages with explicit functional-unit definitions.",
       stack: ["Life Cycle Analysis", "Functional Unit Definition", "Material Stage", "Use Stage", "End-of-Life Stage", "Energy Impact Estimation"],
       results: "Created a comparative sustainability analysis that weighed trade-offs across disposable, biodegradable, and reusable product options.",
       evidence: [
-        { src: ACAD + "LCA/Impact-Assessment.png", alt: "Life-cycle impact assessment", caption: "Impact assessment" },
-        { src: ACAD + "LCA/LCA-Calculation.png", alt: "Life-cycle analysis calculation table", caption: "LCA calculation" }
+        { src: ACAD + "LCA/Impact-Assessment.webp", alt: "Life-cycle impact assessment", caption: "Impact assessment" },
+        { src: ACAD + "LCA/LCA-Calculation.webp", alt: "Life-cycle analysis calculation table", caption: "LCA calculation" }
       ],
       links: []
     },
@@ -180,7 +180,7 @@
       title: "Double-Diamond Centric Product Development",
       tags: ["Human-Centred Design", "Product Design"],
       summary: "Designed “NestAway / Snack Overflow,” a canteen seating and passive bird-deterrence system to improve comfort in SUTD's dining environment.",
-      feature: { src: ACAD + "DTI/Auraplan_Cover.png", alt: "Auraplan canteen seating and bird-deterrence concept" },
+      feature: { src: ACAD + "DTI/Auraplan_Cover.webp", alt: "Auraplan canteen seating and bird-deterrence concept" },
       problem: "SUTD canteen users experience pain points around seating comfort, privacy, bag storage, bird disturbance, spillage, and ambiguous vacancy.",
       process: "Used design thinking and downselection to identify seating as a major touchpoint, then developed a partition-origami bird shelter concept with modular subsystems.",
       solution: "A fully integrated partitioned seating and passive bird deterrence system with storage, modular joints, privacy elements, and interactive aesthetic qualities.",
@@ -188,9 +188,9 @@
       results: "Generated a concept balancing harmony, comfort, convenience, and delightfulness in communal dining.",
       evidence: [],
       links: [
-        { label: "Critical image (PDF)", href: ACAD + "DTI/DTI-Critical-Image.pdf" },
-        { label: "Digital site model (PDF)", href: ACAD + "DTI/DTI-Digital-Site-Model.pdf" },
-        { label: "Part 2 report (PDF)", href: ACAD + "DTI/DTI-Part2.pdf" }
+        { label: "Critical image (PDF)", href: "https://drive.google.com/file/d/11RhMZL88kFH3jxENb7OHzgBXMWlWsVhf/view?usp=sharing" },
+        { label: "Digital site model (PDF)", href: "https://drive.google.com/file/d/1YCkGmKn4kHD2TPIKeqxyON2qyNXSAsXl/view?usp=sharing" },
+        { label: "Part 2 report (PDF)", href: "https://drive.google.com/file/d/1TJOn3S1LMIA-C-E5URcn9Nw3ehgKYJcv/view?usp=sharing" }
       ]
     },
     {
@@ -198,59 +198,58 @@
       title: "Multi-Feature CO₂ Prediction with Linear Regression",
       tags: ["Data / Modelling", "Research", "Sustainability"],
       summary: "Built a data-driven model to predict U.S. transport-sector CO₂ emissions and test mode-shift strategies.",
-      feature: { src: ACAD + "ML/Cover.png", alt: "Multi-feature CO₂ prediction with linear regression" },
+      feature: { src: ACAD + "ML/Cover.webp", alt: "Multi-feature CO₂ prediction with linear regression" },
       problem: "Policy and transport planners need transparent modelling tools that connect passenger traffic, mode mix, and CO₂ emissions.",
       process: "Performed data import, cleaning, feature analysis, visualisation, correlation checking, and linear modelling.",
       solution: "Used a 33-year U.S. dataset with features such as registered vehicles, population, rapid-transit-to-resident ratio, and passenger traffic by transit, highway, intercity, and aviation.",
       stack: ["Python", "Data Cleaning", "Linear Regression", "Correlation Matrix", "Feature Engineering", "Scenario Modelling", "Transport CO₂"],
       results: "Created a model concept for forecasting emissions and evaluating what-if transport mode-shift scenarios.",
       evidence: [
-        { src: ACAD + "ML/Feature-Prediction.png", alt: "Feature prediction results from the CO\u2082 model", caption: "Feature Prediction" }
+        { src: ACAD + "ML/Feature-Prediction.webp", alt: "Feature prediction results from the CO\u2082 model", caption: "Feature Prediction" }
       ],
-      links: [{ label: "Full report (PDF)", href: ACAD + "ML/report.pdf" }]
+      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1pdLxPyg57m73bAovpHYkQGSFHYhPGePS/view?usp=sharing" }]
     },
     {
       id: "unitrack", group: "academic",
       title: "UniTrack — Android University Application Tracker",
       tags: ["IoT / Software Engineering", "Human-Centred Design", "Data / Modelling"],
       summary: "An Android-native app for profile building, eligibility context, college-list management, and deadline tracking.",
-      feature: { src: ACAD + "UniTrack/Cover.png", alt: "UniTrack Android app shown on a phone" },
+      feature: { src: ACAD + "UniTrack/Cover.webp", alt: "UniTrack Android app shown on a phone" },
       problem: "Pre-tertiary students applying to multiple universities often manage fragmented requirements, essays, deadlines, and eligibility information manually.",
       process: "Helped coordinate checkoff requirements and project administration while contributing to development of the Android application.",
       solution: "Built a native Android app using MVVM-style architecture, Activities, ViewModels, Repositories, Room DAOs, Room Database, SQL, and structured OOP principles.",
       stack: ["Android", "Java", "MVVM", "Room Database", "SQL", "Repositories", "DAOs", "OOP", "Singleton", "Composite Pattern", "Strategy Pattern", "Pagination"],
       results: "Implemented must-have features including a personal case tracker, college list builder, and deadline / requirement tracker. The team resolved an “App Not Responding” database issue using pagination with infinite scrolling.",
       evidence: [
-        { src: ACAD + "UniTrack/Poster.png", alt: "Full UniTrack project poster", caption: "Full project poster" },
+        { src: ACAD + "UniTrack/Poster.webp", alt: "Full UniTrack project poster", caption: "Full project poster" },
         { src: ACAD + "UniTrack/event.jpg", alt: "UniTrack showcase event", caption: "Showcase event" },
         { src: ACAD + "UniTrack/team-booth.jpg", alt: "UniTrack team and booth", caption: "Team & booth" }
       ],
-      clips: [
-        { src: ACAD + "UniTrack/video_demo.mp4", caption: "UniTrack app demo" }
-      ], links: []
+      clips: [],
+      links: [{ label: "App demo (video)", href: "https://drive.google.com/file/d/1OWoS8dMoi8M2Imk2-Lxw_v2AG_b2kzqj/view?usp=sharing" }]
     },
     {
       id: "rewardnet", group: "academic",
       title: "RewardNet™ — Algorithmic Reward System Proposal",
       tags: ["Data / Modelling", "Product Design", "IoT / Software Engineering"],
       summary: "A full-suite reward ecosystem for a hypothetical mega-platform using data structures and algorithmic system logic.",
-      feature: { src: ACAD + "RewardNet/Cover.png", alt: "RewardNet algorithmic reward system proposal" },
+      feature: { src: ACAD + "RewardNet/Cover.webp", alt: "RewardNet algorithmic reward system proposal" },
       problem: "A large platform needs a reward system that can incentivise recent meaningful activity without relying only on lifetime accumulation or harsh resets.",
       process: "Helped design the platform logic for loyalty tiers, status points, reward points, seasonal points, requalification, and user activity incentives.",
       solution: "Applied data structure and algorithm concepts such as hashmaps, dictionaries of objects, ordered-statistics logic, point systems, tier cycles, and reward qualification rules.",
       stack: ["HashMap", "Dictionary of Objects", "Ordered Statistics Tree Concept", "System Design", "Loyalty Logic", "Reward Cycles", "Product Mechanics"],
       results: "Produced a structured proposal for a reward ecosystem balancing user motivation, platform activity, and long-term recognition.",
       evidence: [
-        { src: ACAD + "RewardNet/Overview-Datastructure.png", alt: "RewardNet overview data structure", caption: "System data structure" }
+        { src: ACAD + "RewardNet/Overview-Datastructure.webp", alt: "RewardNet overview data structure", caption: "System data structure" }
       ],
-      links: [{ label: "Full report (PDF)", href: ACAD + "RewardNet/algo_report.pdf" }]
+      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1gJYdDXVYQgakbJUU2_4waoBEdzbr8VRM/view?usp=sharing" }]
     },
     {
       id: "eudaimonia", group: "academic",
       title: "Designing for Eudaimonia at Singapore's Bus Stops",
       tags: ["Human-Centred Design", "Research", "Product Design"],
       summary: "A participatory design project exploring how bus-stop infrastructure could better support comfort, dignity, and everyday wellbeing.",
-      feature: { src: ACAD + "HCD/Cover.png", alt: "Designing for Eudaimonia at Singapore's bus stops — concept cover" },
+      feature: { src: ACAD + "HCD/Cover.webp", alt: "Designing for Eudaimonia at Singapore's bus stops — concept cover" },
       problem: "Bus stops are functional but can still create uncertainty, discomfort, and missed communication between commuters and bus captains.",
       process: "Conducted site observations, interviews, participatory workshops, affinity mapping, prototype testing, and iteration.",
       solution: "Developed and tested speculative prototype variations grounded in observed commuter and bus-captain needs.",
@@ -258,8 +257,8 @@
       results: "Gathered insights from teens, elderly participants, and a bus captain, then created and tested speculative prototype variations with follow-up responses from diverse users.",
       youtube: "WaOrqbMs1kE",
       evidence: [
-        { src: ACAD + "HCD/realwinworth.png", alt: "Win-worth analysis from the participatory design study", caption: "Win-worth analysis" },
-        { src: ACAD + "HCD/usertesting.png", alt: "User testing session with commuters", caption: "User testing" }
+        { src: ACAD + "HCD/realwinworth.webp", alt: "Win-worth analysis from the participatory design study", caption: "Win-worth analysis" },
+        { src: ACAD + "HCD/usertesting.webp", alt: "User testing session with commuters", caption: "User testing" }
       ], links: []
     },
     {
@@ -268,7 +267,7 @@
       tags: ["Research", "IoT / Software Engineering", "Sustainability"],
       tagline: "A standalone solar power system for a self-sufficient smart bin.",
       summary: "A compact standalone photovoltaic power system designed to support smart bin sensors and communication modules, reducing grid reliance while improving the feasibility of sustainable smart infrastructure.",
-      feature: { src: ACAD + "DES/Cover.png", alt: "Standalone photovoltaic system for a smart bin prototype" },
+      feature: { src: ACAD + "DES/Cover.webp", alt: "Standalone photovoltaic system for a smart bin prototype" },
       problem: "As Singapore advances Smart Nation 2.0, public infrastructure is increasingly expected to integrate sensing, automation, and digital monitoring. Smart bins introduce continuous power requirements for sensors, motors, and communication modules. This project explored how a standalone photovoltaic system could power a smart bin efficiently, reducing grid dependence while supporting sustainable digital infrastructure.",
       process: "Worked on a Designing Energy Systems academic project to size, test, and validate a standalone solar-powered smart bin. The process involved measuring load current across operating states, using a shunt resistor and oscilloscope to capture fast current draw, analysing peak sun hour constraints, sizing the battery and PV panel, and integrating the panel, charge controller, battery, and custom casing into a working prototype.",
       solution: "A compact photovoltaic system with battery storage powers the smart bin independently from the grid. The design uses a side-mounted solar panel casing, a Li-Po battery, and a charge controller on a scaled smart-bin prototype \u2014 with the panel kept off the lid to reduce mechanical strain on the opening mechanism.",
@@ -276,7 +275,7 @@
       results: "Testing estimated a true daily load of ~420.5 mAh/day and a final adjusted battery requirement of ~867.2 mAh, making a 3.7 V \u22651000 mAh Li-Po battery a practical choice with margin. The PV system was sized against a worst-case December 3.97 PSH assumption using a 6 V, 480 mA panel setup \u2014 producing a working scaled prototype, electrical and mechanical schematics, charging-scenario analysis, and upscaled outdoor-use recommendations.",
       demonstrates: "Applied energy-system design, engineering measurement, hardware integration, and sustainability-oriented prototyping.",
       evidence: [],
-      links: [{ label: "Full report (PDF)", href: ACAD + "DES/SC02_G3-8%20Final%20Report.pdf" }]
+      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1ZilkP-9BT8PNPfRDkkkcxtmqr86Aivb6/view?usp=sharing" }]
     },
 
     /* ---------- GLOBAL EXCHANGE ---------- */
@@ -285,7 +284,7 @@
       title: "DIVE Immersion at Chongqing University: 心间 | Close to Heart",
       tags: ["Global Exchange", "Human-Centred Design", "AI-Powered", "Product Design"],
       summary: "A cross-cultural design project exploring companionship and reassurance for empty-nest elderly residents in China.",
-      feature: { src: EX + "CQU.png", alt: "Close to Heart eldercare companion concept at Chongqing University" },
+      feature: { src: EX + "CQU.webp", alt: "Close to Heart eldercare companion concept at Chongqing University" },
       problem: "Empty-nest elderly residents may experience loneliness, digital fatigue, reluctance to disturb their children, and barriers to complex app-based systems.",
       process: "Worked in a cross-cultural student team to define user insights, generate concepts, study precedent products, and develop a speech-based sentimental companion concept.",
       solution: "“心间 | Close to Heart” is a non-robotic, familiar, speech-based companion concept designed to provide delightful everyday companionship and timely reassurance for families. It receives microphone input, converts speech to text, interprets context through NLU and personalisation, plans tone by dialect, politeness, pacing and length, composes a reply, and outputs Mandarin speech — with future routine nudges, quiet hours, family status updates, and emergency tool-calling.",
@@ -298,23 +297,23 @@
       title: "TIIDE Exchange at Zhejiang University: GenAI Beauty Campaign",
       tags: ["Global Exchange", "AI-Powered", "Creative Technology", "Product Design"],
       summary: "“Generations of Beauty / 代代美丽: The Golden Thread of Time,” a GenAI campaign connecting L'Oréal Paris Age Perfect, the Double Ninth Festival, and intergenerational beauty.",
-      feature: { src: ACAD + "TIIDE_GenAI/Cover.png", alt: "Generations of Beauty GenAI campaign cover" },
+      feature: { src: ACAD + "TIIDE_GenAI/Cover.webp", alt: "Generations of Beauty GenAI campaign cover" },
       problem: "The project explored how AI-generated campaign assets and a coded website could translate cultural values such as filial piety, longevity, and intergenerational connection into a modern brand experience.",
       process: "Worked on campaign concept, cultural analysis, AI image workflow experimentation, campaign collateral generation, and website concept development.",
       solution: "Used ComfyUI workflows involving SDXL, Juggernaut, FLUX.1 Kontext, LoRA, inpainting, ControlNet, scribble guidance, upscaling, and agentic coding for campaign website development.",
       stack: ["ComfyUI", "SDXL", "FLUX.1 Kontext", "LoRA", "Inpainting", "ControlNet", "Upscaling", "Prompt Engineering", "Campaign Design", "Agentic Coding", "Cultural Storytelling"],
       results: "Produced campaign visuals, motifs, poster representations, and a coded website demo exploring how AI can support culturally grounded creative production.",
       evidence: [
-        { src: ACAD + "TIIDE_GenAI/Final-Poster.png", alt: "Generations of Beauty final campaign poster", caption: "Final campaign poster" },
-        { src: ACAD + "TIIDE_GenAI/Presentation.png", alt: "GenAI beauty campaign presentation", caption: "Campaign presentation" },
-        { src: ACAD + "TIIDE_GenAI/Pubs-Collateral.png", alt: "Campaign publications and collateral", caption: "Publications & collateral" },
-        { src: ACAD + "TIIDE_GenAI/T2I-LoRa.png", alt: "Text-to-image and LoRA generation workflow", caption: "Text-to-image + LoRA workflow" },
-        { src: ACAD + "TIIDE_GenAI/flux1kontext.png", alt: "FLUX.1 Kontext image editing workflow", caption: "FLUX.1 Kontext editing" },
+        { src: ACAD + "TIIDE_GenAI/Final-Poster.webp", alt: "Generations of Beauty final campaign poster", caption: "Final campaign poster" },
+        { src: ACAD + "TIIDE_GenAI/Presentation.webp", alt: "GenAI beauty campaign presentation", caption: "Campaign presentation" },
+        { src: ACAD + "TIIDE_GenAI/Pubs-Collateral.webp", alt: "Campaign publications and collateral", caption: "Publications & collateral" },
+        { src: ACAD + "TIIDE_GenAI/T2I-LoRa.webp", alt: "Text-to-image and LoRA generation workflow", caption: "Text-to-image + LoRA workflow" },
+        { src: ACAD + "TIIDE_GenAI/flux1kontext.webp", alt: "FLUX.1 Kontext image editing workflow", caption: "FLUX.1 Kontext editing" },
         { src: EX + "TIIDE_GrpPic.jpg", alt: "TIIDE exchange team group photo", caption: "TIIDE exchange team" }
       ],
       links: [
-        { label: "TIIDE programme certificate (PDF)", href: EX + "TIIDE/TIIDE-Programme-Certificate.pdf" },
-        { label: "TIIDE programme transcript (PDF)", href: EX + "TIIDE/TIIDE-Programme-Transcript.pdf" }
+        { label: "TIIDE programme certificate (PDF)", href: "https://drive.google.com/file/d/1MP41Cttm8QnH3nRn4Hg3X4TcNUpJGu0g/view?usp=sharing" },
+        { label: "TIIDE programme transcript (PDF)", href: "https://drive.google.com/file/d/1u59tdUUWwhJZFzGoE2jnGpraJy4oor0y/view?usp=sharing" }
       ]
     },
     {
@@ -322,23 +321,22 @@
       title: "EnjoyMusic Internship: AI-Driven Entertainment & Show Technology",
       tags: ["Global Exchange", "Intern", "AI-Powered", "Creative Technology", "IoT / Software Engineering"],
       summary: "An AI entertainment internship in Shanghai exploring immersive music, visual systems, AI-driven mapping visuals, lighting automation, and creative-technology workflows.",
-      feature: { src: INTERN + "Cover.png", alt: "EnjoyMusic AI entertainment internship in Shanghai" },
+      feature: { src: INTERN + "Cover.webp", alt: "EnjoyMusic AI entertainment internship in Shanghai" },
       problem: "The entertainment industry increasingly needs workflows that connect creative direction, AI generation, visual production, music analysis, and live show execution.",
       process: "Worked on AI-enabled entertainment concepts and technical workflows across immersive audio-visual projects, production coordination, and experimental tooling. Areas included an interactive room installation at INS Land / Oasis, AI-driven mapping visuals for Magic of Tomorrowland / Tomorrowland China, AI music-lighting automation, motion-capture rigging, music analysis and data annotation for ML training, and DAW effect-plugin exploration.",
       solution: "Connected AI visual generation, stage and lighting tooling, and music analysis into experimental show-technology workflows.",
       stack: ["AI Visual Workflow", "Image-to-Image", "Video-to-Image", "Stage Design", "GrandMA", "DMX", "Resolume Arena", "VJ Workflow", "MediaPipe", "React / Next.js exposure", "beat_this (Python)", "Music Annotation", "DAW Plugins", "C++"],
       results: "Gained practical exposure to how creative vision, project management, AI tools, and technical execution come together in high-pressure entertainment environments.",
       evidence: [
-        { src: INTERN + "TIIDE_Intern (1).png", alt: "EnjoyMusic AI entertainment internship", caption: "Show-technology work" },
-        { src: INTERN + "TIIDE_Intern (2).png", alt: "EnjoyMusic internship show technology workflow", caption: "AI visual workflow" }
+        { src: INTERN + "TIIDE_Intern (1).webp", alt: "EnjoyMusic AI entertainment internship", caption: "Show-technology work" },
+        { src: INTERN + "TIIDE_Intern (2).webp", alt: "EnjoyMusic internship show technology workflow", caption: "AI visual workflow" }
       ],
-      clips: [
-        { src: INTERN + "TMLvisuals/AfterParty_Sample1.mp4", caption: "AI mapping visual — sample 1" },
-        { src: INTERN + "TMLvisuals/AfterParty_Sample2.mp4", caption: "AI mapping visual — sample 2" }
-      ],
+      clips: [],
       links: [
-        { label: "Final defence deck (PDF)", href: INTERN + "EnjoyMusic-Final-Defence-compressed.pdf" },
-        { label: "Internship certificate (PDF)", href: INTERN + "EnjoyMusic-Certificate.pdf" }
+        { label: "AI mapping visual — sample 1 (video)", href: "https://drive.google.com/file/d/1LihrrgyKInwXXFKa6vKEKnZlgst5GQO8/view?usp=sharing" },
+        { label: "AI mapping visual — sample 2 (video)", href: "https://drive.google.com/file/d/1VK1ouYlEXdIXICXywO7VsEutRQVWcpfc/view?usp=sharing" },
+        { label: "Final defence deck (PDF)", href: "https://drive.google.com/file/d/14WVVCeIUZRnLQ1U7cVAi7eyMeIG0jdLf/view?usp=sharing" },
+        { label: "Internship certificate (PDF)", href: "https://drive.google.com/file/d/1wNsjglgm6AxfqjUY95vTjtATMCOiW_cf/view?usp=sharing" }
       ]
     }
   ];

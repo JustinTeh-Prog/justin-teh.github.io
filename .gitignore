@@ -1,0 +1,8 @@
+assets/raw/
+*.psd
+*.ai
+*.fig
+*.zip
+*.mp4
+*.mov
+*_raw.*
