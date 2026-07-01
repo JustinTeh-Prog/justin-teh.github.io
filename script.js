@@ -598,7 +598,7 @@
       updateDots();
     }
 
-    // ---- Auto-rotate every 5s (pauses on hover / off-screen / reduced motion) ----
+    // ---- Auto-rotate every 2s (pauses on hover / off-screen / reduced motion) ----
     var prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var autoTimer = null;
     function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
@@ -1229,18 +1229,21 @@
           });
         }
       }
-      summary.addEventListener("click", function (e) { e.preventDefault(); doToggle(); });
-      // Let the philosophy cards close by clicking anywhere on the open card,
-      // not just the summary bezel. Ignore interactive targets and text the
-      // user is actively selecting.
+      // The philosophy drop-cards toggle from ANYWHERE on the card — header,
+      // teaser, or body text — both to open AND to close. Other folds keep the
+      // summary-only toggle. Ignore links/controls and active text selection.
       if (det.classList.contains("drop-card")) {
+        det.style.cursor = "pointer";
         content.style.cursor = "pointer";
-        content.addEventListener("click", function (e) {
-          if (!det.open || animating) return;
+        det.addEventListener("click", function (e) {
+          if (animating) return;
           if (e.target.closest("a, button, input, textarea, select")) return;
           if (window.getSelection && String(window.getSelection())) return;
+          e.preventDefault();
           doToggle();
         });
+      } else {
+        summary.addEventListener("click", function (e) { e.preventDefault(); doToggle(); });
       }
     });
   })();

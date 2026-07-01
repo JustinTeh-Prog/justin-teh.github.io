@@ -1104,3 +1104,58 @@ body { zoom: 0.8; }
   font-size: clamp(1.02rem, 1.5vw, 1.2rem); line-height: 1.55;
   color: var(--ink-soft); max-width: 48ch; margin-bottom: 1.3rem;
 }
+
+/* ============================================================
+   REVISION 7 — MOBILE POLISH
+   · smaller elements / less scrolling on phones
+   · fix nav dropdown overflow (anchored right, fits content)
+   · arts section always visible (no reveal drop-out on mobile)
+   · snappier lightbox controls
+   ============================================================ */
+
+/* Kill tap-delay / double-tap-zoom on interactive controls */
+button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
+.nav-link, .drop-card, .card, .event, .ex-card { touch-action: manipulation; }
+
+@media (max-width: 720px) {
+  /* --- Scale the whole page down further so more fits per screen --- */
+  body { zoom: 0.68; }
+
+  /* Tighter vertical rhythm → far less scrolling */
+  .section { padding: clamp(30px, 6vw, 52px) 0; }
+  #about { padding-top: 14px; }
+  .hero { padding: 20px; gap: 18px; margin-bottom: 20px; }
+  .hero-portrait { max-width: 300px; }
+  .philosophy { gap: 12px; margin-top: 18px; }
+  .skills-fold { margin-top: 18px; }
+  .arts-hero { padding: 20px; margin-bottom: 20px; }
+  .arts-openers { margin: 16px 0; gap: 12px; }
+  .section-head { margin-bottom: 1.4rem; }
+  .events, .exchange-grid { gap: 14px; }
+
+  /* Highlights carousel: shorter stage, smaller cards */
+  .hl-stage { height: clamp(340px, 56vh, 440px); margin: 2px 0; }
+  .hl-card { width: min(320px, 84vw); height: clamp(320px, 52vh, 420px); }
+  .hl-dots { margin-top: 16px; }
+
+  /* --- Nav dropdown: anchor to the right pill, fit content, extend left --- */
+  .nav-pill-links { position: relative; }
+  .navlist {
+    left: auto; right: 0;
+    width: max-content; min-width: 160px; max-width: min(74vw, 240px);
+    padding: 10px;
+  }
+  .navlist .nav-link { width: 100%; white-space: nowrap; }
+
+  /* --- Arts credits: never stay hidden (reveal was dropping out on scroll) --- */
+  .reveal-bi { opacity: 1 !important; transform: none !important; }
+
+  /* --- Lightbox: bigger, snappier next/prev buttons --- */
+  .lb-btn {
+    width: 54px; height: 54px; font-size: 1.7rem; z-index: 10;
+    background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.45);
+  }
+  .lb-prev { left: 6px; }
+  .lb-next { right: 6px; }
+  .lb-close { top: -46px; width: 46px; height: 46px; z-index: 10; }
+}
