@@ -35,7 +35,7 @@
   // Build an <img> that swaps in a tasteful placeholder on load error.
   // The handler lives on window so we never inline quote-heavy HTML into the attribute.
   function imgTag(src, alt, title, cls) {
-    return '<img src="' + src + '" alt="' + escHtml(alt) + '" loading="lazy" ' +
+    return '<img src="' + src + '" alt="' + escHtml(alt) + '" loading="lazy" decoding="async" ' +
       'class="' + (cls || "") + '" data-ph="' + escHtml(title) + '" onerror="window.__phErr(this)" />';
   }
   window.__phErr = function (img) {
@@ -401,6 +401,26 @@
         { src: ARTS + "10FNM (5).jpg", alt: "Fresh-No-More! 2026 5" }
       ] }
   ];
+
+  /* ---------------------------------------------------------
+     Lock zoom on all devices. The viewport meta is ignored by
+     iOS Safari, so we cancel pinch gestures + double-tap zoom
+     directly. Single-touch scrolling / swiping is untouched.
+     --------------------------------------------------------- */
+  (function lockZoom() {
+    ["gesturestart", "gesturechange", "gestureend"].forEach(function (evt) {
+      document.addEventListener(evt, function (e) { e.preventDefault(); }, { passive: false });
+    });
+    document.addEventListener("touchmove", function (e) {
+      if (e.touches && e.touches.length > 1) e.preventDefault();
+    }, { passive: false });
+    var lastTouchEnd = 0;
+    document.addEventListener("touchend", function (e) {
+      var now = Date.now();
+      if (now - lastTouchEnd <= 300) e.preventDefault();
+      lastTouchEnd = now;
+    }, { passive: false });
+  })();
 
   /* ---------------------------------------------------------
      Small DOM helpers
@@ -818,7 +838,11 @@
      removes the flicker the old single-threshold observer caused, where a card
      parked right at 15% visibility would toggle on every tiny scroll. */
   var revealBiEls = Array.prototype.slice.call(document.querySelectorAll(".reveal-bi"));
+  function isSmallScreen() { return window.matchMedia("(max-width: 720px)").matches; }
   function revealBiCheck() {
+    // On phones the scroll-driven reveal is unreliable (zoom + rect math), and
+    // an un-revealed card stays invisible. Just show them all — no drop-out.
+    if (isSmallScreen()) { for (var j = 0; j < revealBiEls.length; j++) revealBiEls[j].classList.add("in"); return; }
     var vh = window.innerHeight || document.documentElement.clientHeight;
     for (var i = 0; i < revealBiEls.length; i++) {
       var n = revealBiEls[i];
@@ -863,6 +887,7 @@
   // Reveal elements once they scroll into view. Uses getBoundingClientRect
   // (robust across browsers/embeds) rather than IntersectionObserver.
   function revealCheck() {
+    if (isSmallScreen()) { document.querySelectorAll(".reveal:not(.in)").forEach(function (n) { n.classList.add("in"); }); return; }
     var vh = window.innerHeight || document.documentElement.clientHeight;
     document.querySelectorAll(".reveal:not(.in)").forEach(function (n) {
       var r = n.getBoundingClientRect();
@@ -1160,6 +1185,10 @@
      Preload cover images so cards appear instantly on scroll
      --------------------------------------------------------- */
   (function preloadCovers() {
+    // Respect data-saver / very slow links — rely purely on native lazy-loading there.
+    var conn = navigator.connection || {};
+    if (conn.saveData || /2g/.test(conn.effectiveType || "")) return;
+
     var seen = {};
     function load(urls) {
       urls.forEach(function (u) {
@@ -1167,21 +1196,17 @@
         var im = new Image(); im.decoding = "async"; im.src = u;
       });
     }
-    // Phase 1 (priority): project + album cover images — what's visible first.
+    // Only warm the cover images that appear first (project + album covers).
+    // Remaining album photos are handled by native lazy-loading, and the
+    // lightbox warms an album the moment it opens — so no bulk preload here.
     var covers = [];
     PROJECTS.forEach(function (p) { if (p.feature && p.feature.src) covers.push(p.feature.src); });
     EVENTS.forEach(function (ev) { if (ev.images && ev.images[0]) covers.push(ev.images[0].src); });
-    // Phase 2 (deferred): the remaining album photos, so stepping through any
-    // Production Credits gallery is instant even on the very first open.
-    var rest = [];
-    EVENTS.forEach(function (ev) {
-      (ev.images || []).slice(1).forEach(function (im) { if (im && im.src) rest.push(im.src); });
-    });
     function idle(fn, t) {
       if ("requestIdleCallback" in window) requestIdleCallback(fn, { timeout: t });
       else setTimeout(fn, t / 4);
     }
-    idle(function () { load(covers); idle(function () { load(rest); }, 2000); }, 1500);
+    idle(function () { load(covers); }, 1500);
   })();
 
   /* ---------------------------------------------------------
@@ -1199,18 +1224,29 @@
       function doToggle() {
         if (animating) return;
         animating = true;
-        if (det.open) {
+        var closing = det.open;
+        var settleTimer = null;
+        // Single finalizer, driven by whichever fires first: the height
+        // transition end OR a safety timeout. This guarantees `animating`
+        // always resets and the card can never jam in a half-toggled state.
+        function done() {
+          if (!animating) return;
+          content.removeEventListener("transitionend", onEnd);
+          clearTimeout(settleTimer);
+          if (closing) det.open = false;
+          clear();
+        }
+        function onEnd(ev) { if (ev.propertyName === "height") done(); }
+        content.addEventListener("transitionend", onEnd);
+        settleTimer = setTimeout(done, 480);
+
+        if (closing) {
           var h = content.scrollHeight;
           content.style.height = h + "px";
           content.style.transition = "height 0.34s cubic-bezier(.4,0,.2,1), opacity 0.28s ease";
           requestAnimationFrame(function () {
             content.style.opacity = "0";
             content.style.height = "0px";
-          });
-          content.addEventListener("transitionend", function te(ev) {
-            if (ev.propertyName !== "height") return;
-            content.removeEventListener("transitionend", te);
-            det.open = false; clear();
           });
         } else {
           det.open = true;
@@ -1221,11 +1257,6 @@
             content.style.transition = "height 0.4s cubic-bezier(.16,1,.3,1), opacity 0.42s ease";
             content.style.height = target + "px";
             content.style.opacity = "1";
-          });
-          content.addEventListener("transitionend", function te(ev) {
-            if (ev.propertyName !== "height") return;
-            content.removeEventListener("transitionend", te);
-            clear();
           });
         }
       }

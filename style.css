@@ -1159,3 +1159,26 @@ button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
   .lb-next { right: 6px; }
   .lb-close { top: -46px; width: 46px; height: 46px; z-index: 10; }
 }
+
+/* ============================================================
+   REVISION 8 — MOBILE ICON NAV
+   Section links become graphic icons on phones so text can't
+   overflow the frame. Desktop is unchanged (icons stay hidden,
+   text labels show exactly as before).
+   ============================================================ */
+.nav-ico { display: none; }
+
+@media (max-width: 720px) {
+  /* Compact icon column, anchored to the right pill, no text spill */
+  .navlist {
+    right: 0; left: auto;
+    width: max-content; min-width: 0; max-width: none;
+    padding: 8px; gap: 6px;
+  }
+  .nav-link {
+    display: flex; align-items: center; justify-content: center;
+    width: 46px; height: 46px; padding: 0; border-radius: 14px;
+  }
+  .nav-ico { display: block; width: 23px; height: 23px; }
+  .nav-txt { display: none; }
+}
