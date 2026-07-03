@@ -1169,18 +1169,19 @@ button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
 .nav-ico { display: none; }
 
 @media (max-width: 720px) {
-  /* Compact icon column, anchored to the right pill, no text spill */
+  /* Text labels, right-aligned dropdown that stays inside the viewport */
   .navlist {
     right: 0; left: auto;
-    width: max-content; min-width: 0; max-width: none;
-    padding: 8px; gap: 6px;
+    width: max-content; min-width: 160px; max-width: calc(100vw - 32px);
+    padding: 8px; gap: 4px;
   }
   .nav-link {
-    display: flex; align-items: center; justify-content: center;
-    width: 46px; height: 46px; padding: 0; border-radius: 14px;
+    display: flex; align-items: center; justify-content: flex-end;
+    width: 100%; height: auto; padding: 10px 14px; border-radius: 12px;
+    text-align: right; white-space: nowrap;
   }
-  .nav-ico { display: block; width: 23px; height: 23px; }
-  .nav-txt { display: none; }
+  .nav-ico { display: none; }
+  .nav-txt { display: inline; }
 }
 
 /* ============================================================
@@ -1256,6 +1257,9 @@ button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
 .skills-overview-head { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 18px; }
 .skills-overview .eyebrow { margin-bottom: 0; }
 .skills-overview .cloud { justify-content: center; }
+/* Fixed-height cloud: pack chips at the top at their natural size instead of
+   stretching rows/chips to fill the reserved space. */
+#skills-cloud { align-content: flex-start; align-items: flex-start; }
 
 /* ============================================================
    MOBILE-ONLY FIXES — text containment + 2-col production grid
@@ -1301,11 +1305,16 @@ button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
   border: 6px solid transparent; border-bottom-color: var(--line);
   opacity: 0; transition: opacity 0.2s ease; z-index: 29;
 }
-.chip-expand:hover .chip-libs,
-.chip-expand:focus-within .chip-libs { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-.chip-expand:hover::after,
-.chip-expand:focus-within::after { opacity: 1; }
-/* Mobile: tap-to-toggle open state (mirrors :hover/:focus-within) */
+/* Desktop (hover-capable) uses hover / focus to reveal; touch uses tap-toggle (.is-open) */
+@media (hover: hover) and (pointer: fine) {
+  .chip-expand:hover .chip-libs,
+  .chip-expand:focus-within .chip-libs { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+  .chip-expand:hover::after,
+  .chip-expand:focus-within::after { opacity: 1; }
+  .chip-expand:hover,
+  .chip-expand:focus-within { z-index: 60; }
+}
+/* Mobile: tap-to-toggle open state */
 .chip-expand.is-open .chip-libs { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
 .chip-expand.is-open::after { opacity: 1; }
 .chip-expand.is-open { z-index: 60; }

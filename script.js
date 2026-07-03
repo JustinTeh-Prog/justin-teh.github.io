@@ -92,6 +92,7 @@
     {
       id: "iadl", group: "featured",
       title: "Interactive IADL Rehabilitation Assessment Device",
+      period: "Completed in July 2021",
       tags: ["Software / IoT", "Human-Centred & Product Design"],
       summary: "An assistive rehabilitation assessment device that captures motion and force data during activities of daily living through sensor integration, computer vision, and an interactive game-based interface.",
       feature: { src: IADL + "IADL_Cover.webp", alt: "Interactive IADL rehabilitation device in use" },
@@ -116,6 +117,7 @@
     {
       id: "astar", group: "internship",
       title: "A*STAR IME Proprietary Sensor Software Application Internship",
+      period: "Sept – April 2022",
       tags: ["Software / IoT", "Data & Modelling"],
       summary: "A full-stack IoT software internship involving cloud-based sensor monitoring, live data transfer, database handling, and dashboard development within a research environment.",
       feature: { src: "assets/Intern/astar_logo.webp", alt: "A*STAR Institute of Microelectronics logo", contain: true },
@@ -134,7 +136,7 @@
     {
       id: "unitrack", group: "academic",
       title: "UniTrack — Android University Application Tracker",
-      period: "Completed Apr 2026",
+      period: "Completed in April 2026",
       tags: ["Software / IoT", "Human-Centred & Product Design"],
       summary: "An Android-native app for profile building, eligibility context, college-list management, and deadline tracking.",
       feature: { src: ACAD + "UniTrack/Cover.webp", alt: "UniTrack Android app shown on a phone" },
@@ -154,7 +156,7 @@
     {
       id: "double-diamond", group: "academic",
       title: "Double-Diamond Centric Product Development",
-      period: "Completed Apr 2025",
+      period: "Completed in April 2025",
       tags: ["Human-Centred & Product Design"],
       summary: "Designed “NestAway / Snack Overflow,” a canteen seating and passive bird-deterrence system to improve comfort in SUTD's dining environment.",
       feature: { src: ACAD + "DTI/Auraplan_Cover.webp", alt: "Auraplan canteen seating and bird-deterrence concept", fit: "contain" },
@@ -173,7 +175,7 @@
     {
       id: "solarbin", group: "academic",
       title: "Standalone Photovoltaic System for Smart Bin",
-      period: "Completed Aug 2025",
+      period: "Completed in August 2025",
       tags: ["Sustainability", "Software / IoT"],
       tagline: "A standalone solar power system for a self-sufficient smart bin.",
       summary: "A compact standalone solar power system that keeps a smart bin's sensors and communication modules running independently of the grid.",
@@ -190,7 +192,7 @@
     {
       id: "rewardnet", group: "academic",
       title: "RewardNet™ — Algorithmic Reward System Proposal",
-      period: "Completed Apr 2026",
+      period: "Completed in April 2026",
       tags: ["Data & Modelling", "Human-Centred & Product Design"],
       summary: "A full-suite reward ecosystem for a hypothetical mega-platform using data structures and algorithmic system logic.",
       feature: { src: ACAD + "RewardNet/Cover.webp", alt: "RewardNet algorithmic reward system proposal" },
@@ -207,7 +209,7 @@
     {
       id: "linear-regression", group: "academic",
       title: "Multi-Feature CO₂ Prediction with Linear Regression",
-      period: "Completed Aug 2025",
+      period: "Completed in August 2025",
       tags: ["Data & Modelling", "Sustainability"],
       summary: "Built a data-driven model to predict U.S. transport-sector CO₂ emissions and test mode-shift strategies.",
       feature: { src: ACAD + "ML/Cover.webp", alt: "Multi-feature CO₂ prediction with linear regression" },
@@ -227,7 +229,7 @@
     {
       id: "eudaimonia", group: "academic",
       title: "Designing for Eudaimonia at Singapore's Bus Stops",
-      period: "Completed Apr 2026",
+      period: "Completed in April 2026",
       tags: ["Human-Centred & Product Design"],
       summary: "A participatory design project exploring how bus-stop infrastructure could better support comfort, dignity, and everyday wellbeing.",
       feature: { src: ACAD + "HCD/Cover.webp", alt: "Designing for Eudaimonia at Singapore's bus stops — concept cover" },
@@ -245,7 +247,7 @@
     {
       id: "lca", group: "academic",
       title: "Life Cycle Analysis Report",
-      period: "Completed Apr 2025",
+      period: "Completed in April 2025",
       tags: ["Sustainability", "Data & Modelling"],
       coverLabel: "",
       summary: "Compared single-use PET cups, biodegradable bamboo cups, and reusable polycarbonate cups through life-cycle analysis.",
@@ -264,7 +266,7 @@
     {
       id: "parametric", group: "academic",
       title: "Parametric Modelling with Rhino Grasshopper",
-      period: "Completed Dec 2024",
+      period: "Completed in December 2024",
       tags: ["Human-Centred & Product Design"],
       summary: "A computational design study inspired by stalactite cave formations using parametric terrain logic.",
       feature: { src: ACAD + "ParametricModel/Cover.webp", alt: "Parametric stalactite cave-form model" },
@@ -282,7 +284,7 @@
     {
       id: "audiometry", group: "academic",
       title: "Pure Tone Audiometry Assessment & Recommendation",
-      period: "Completed Jul 2021",
+      period: "Completed in July 2021",
       tags: ["Data & Modelling"],
       coverLabel: "",
       summary: "Analysed an audiometry case through air conduction, bone conduction, masking, hearing-loss classification, and implications for speech perception.",
@@ -338,6 +340,7 @@
     {
       id: "enjoymusic", group: "internship",
       title: "EnjoyMusic Internship: AI-Driven Entertainment & Show Technology",
+      period: "Oct \u2013 Dec 2025",
       tags: ["AI-Powered", "Creative Technology", "Software / IoT"],
       summary: "An AI entertainment internship in Shanghai exploring immersive music, visual systems, AI-driven mapping visuals, lighting automation, and creative-technology workflows.",
       feature: { src: INTERN + "Cover.webp", alt: "EnjoyMusic AI entertainment internship in Shanghai" },
@@ -471,7 +474,8 @@
     var tabs = $("#skill-tabs");
     if (!cloud || !tabs) return;
     var SETS = { technical: TECHNICAL_SKILLS, creative: CREATIVE_SKILLS, productions: PRODUCTION_SKILLS, team: TEAM_SKILLS };
-    function render(cat) {
+    var activeCat = "technical";
+    function renderChips(cat) {
       cloud.classList.toggle("creative", cat === "creative");
       cloud.innerHTML = "";
       SETS[cat].forEach(function (s, i) {
@@ -493,6 +497,23 @@
         cloud.appendChild(chip);
       });
     }
+    // Keep the cloud a fixed height across categories (sized to the largest set,
+    // Technical) so switching tabs doesn't make the container jump. Measured by
+    // laying out Technical, reading its height, then rendering the real category
+    // — all in one synchronous frame, so there's no visible flash.
+    function render(cat) {
+      activeCat = cat;
+      cloud.style.minHeight = "0px";
+      renderChips("technical");
+      var maxH = cloud.offsetHeight;
+      renderChips(cat);
+      cloud.style.minHeight = maxH + "px";
+    }
+    var rz;
+    window.addEventListener("resize", function () {
+      clearTimeout(rz);
+      rz = setTimeout(function () { render(activeCat); }, 150);
+    });
     function isMobileLike() {
       return window.matchMedia("(hover: none), (pointer: coarse)").matches;
     }
@@ -1164,19 +1185,43 @@
     function isMobileLike() {
       return window.matchMedia("(hover: none), (pointer: coarse)").matches;
     }
-    var sx = 0, sy = 0, tracking = false;
+    var sx = 0, sy = 0, dx = 0, dy = 0, tracking = false, decided = false, horizontal = false;
+    function reset(animate) {
+      panel.style.transition = animate ? "transform 0.22s ease" : "";
+      panel.style.transform = "";
+      if (animate) {
+        setTimeout(function () { panel.style.transition = ""; }, 240);
+      }
+    }
     panel.addEventListener("touchstart", function (e) {
       if (!isMobileLike() || e.touches.length !== 1) { tracking = false; return; }
       sx = e.touches[0].clientX; sy = e.touches[0].clientY;
-      tracking = true;
+      dx = dy = 0; tracking = true; decided = false; horizontal = false;
+      panel.style.transition = "";
     }, { passive: true });
-    panel.addEventListener("touchend", function (e) {
+    panel.addEventListener("touchmove", function (e) {
+      if (!tracking) return;
+      dx = e.touches[0].clientX - sx;
+      dy = e.touches[0].clientY - sy;
+      if (!decided && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+        decided = true;
+        horizontal = Math.abs(dx) > Math.abs(dy);   // lock to the dominant axis
+      }
+      // Only hijack the gesture for a leftward, horizontally-dominant swipe;
+      // otherwise leave vertical scrolling untouched.
+      if (decided && horizontal && dx < 0) {
+        panel.style.transform = "translateX(" + dx + "px)";
+      }
+    }, { passive: true });
+    panel.addEventListener("touchend", function () {
       if (!tracking) return;
       tracking = false;
-      var t = e.changedTouches[0];
-      var dx = t.clientX - sx;
-      var dy = t.clientY - sy;
-      if (dx < -70 && Math.abs(dy) < 60) closeModal();
+      if (decided && horizontal && dx < -70) {
+        closeModal();
+        reset(false);
+      } else {
+        reset(true);   // spring back
+      }
     }, { passive: true });
   })();
 
