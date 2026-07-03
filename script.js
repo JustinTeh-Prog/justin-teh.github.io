@@ -48,17 +48,23 @@
      CONTENT DATA
      --------------------------------------------------------- */
   var TECHNICAL_SKILLS = [
-    "Python", "Java", "C++", "Arduino / ESP32", "ASP.NET Core MVC", "HTML", "CSS",
-    "JavaScript", "SQL", "SQLite", "Room Database", "MQTT", "OpenCV", "Pygame",
-    "Tkinter", "Matplotlib", "Fusion 360", "Rhino / Grasshopper", "ComfyUI",
-    "FLUX.1 Kontext", "ControlNet", "MediaPipe", "React / Next.js exposure", "GitHub Pages"
+    { name: "Python", bold: true, libs: ["OpenCV", "Pygame", "Tkinter", "Matplotlib"] },
+    { name: "Java", bold: true },
+    { name: "C++", bold: true },
+    { name: "Arduino / ESP32", bold: true },
+    { name: "JavaScript", bold: true },
+    "ASP.NET Core MVC", "HTML", "CSS",
+    "SQL", "SQLite", "Room Database", "MQTT",
+    "Fusion 360", "Rhino / Grasshopper",
+    { name: "ComfyUI", libs: ["FLUX.1 Kontext", "ControlNet"] },
+    "MediaPipe", "React / Next.js exposure", "Data Cleaning"
   ];
   var CREATIVE_SKILLS = [
     "Human-Centred Design", "Participatory Design", "Project Management",
-    "Technical Documentation", "Design Thinking", "Data Cleaning", "Visual Storytelling",
-    "Lighting Direction", "Stage Management", "Production Planning", "Team Leadership",
-    "Stakeholder Coordination", "Cross-Cultural Collaboration"
+    "Technical Documentation", "Design Thinking"
   ];
+  var PRODUCTION_SKILLS = ["Lighting Direction", "Stage Management", "Production Planning"];
+  var TEAM_SKILLS = ["Team Leadership", "Stakeholder Coordination", "Cross-Cultural Collaboration"];
   var ARTS_SKILL_GROUPS = [
     { label: "Event Planning", items: ["Stage Management", "Technical Coordination", "Production Scheduling", "Bump-In Planning", "Risk Assessment"] },
     { label: "Technical Skills", items: ["Show Calling", "Stage Crew", "Hybrid & Digital Audio Consoles", "GrandMA 2", "GrandMA 3", "Avolite", "Video Switcher"] }
@@ -66,13 +72,13 @@
 
   var FILTER_CLUSTERS = [
     { label: "Collections", items: [
-      { f: "All", label: "All Work" },
-      { f: "Intern", label: "Intern" }
+      { f: "All", label: "All Projects" },
+      { f: "Capstone", label: "Capstone" },
+      { f: "Acad", label: "Acad" }
     ] },
     { label: "By project focus", items: [
-      "Research", "Assistive Tech", "AI-Powered", "IoT / Software Engineering",
-      "Human-Centred Design", "Data / Modelling", "Creative Technology",
-      "Sustainability", "Product Design"
+      "Software / IoT", "Human-Centred & Product Design", "Data & Modelling",
+      "Sustainability"
     ] }
   ];
 
@@ -86,7 +92,7 @@
     {
       id: "iadl", group: "featured",
       title: "Interactive IADL Rehabilitation Assessment Device",
-      tags: ["Assistive Tech", "Research", "IoT / Software Engineering", "Human-Centred Design"],
+      tags: ["Software / IoT", "Human-Centred & Product Design"],
       summary: "An assistive rehabilitation assessment device that captures motion and force data during activities of daily living through sensor integration, computer vision, and an interactive game-based interface.",
       feature: { src: IADL + "IADL_Cover.webp", alt: "Interactive IADL rehabilitation device in use" },
       problem: "Traditional rehabilitation assessments can rely heavily on qualitative observation. This project explored how motion and force data could be captured more objectively during activities of daily living, supporting therapists with clearer performance records across sessions.",
@@ -102,14 +108,17 @@
         { src: IADL + "IADL (3).webp", alt: "IADL motion tracking detail", caption: "Motion tracking detail" },
         { src: IADL + "IP2SG_Inbox.jpeg", alt: "Patent-related filing evidence via IP2SG", caption: "Patent filing evidence (IP2SG)" }
       ],
-      links: [{ label: "ARTSIC certificate (PDF)", href: "https://drive.google.com/file/d/1akDJdFsLQU41GBk2h1des-EL3fPAMGDz/view?usp=sharing" }]
+      links: [
+        { label: "GitHub repository", href: "https://github.com/JustinTeh-Prog/InteractiveAssessmentRehabitation" },
+        { label: "Demo (video)", href: "https://drive.google.com/file/d/1iKbCqZ5-4pwDWzn0odektVTlBeEMGZdi/view?usp=sharing" }
+      ]
     },
     {
       id: "astar", group: "internship",
       title: "A*STAR IME Proprietary Sensor Software Application Internship",
-      tags: ["Research", "Intern", "IoT / Software Engineering", "Data / Modelling"],
+      tags: ["Software / IoT", "Data & Modelling"],
       summary: "A full-stack IoT software internship involving cloud-based sensor monitoring, live data transfer, database handling, and dashboard development within a research environment.",
-      feature: null, // NDA — no visuals disclosed
+      feature: { src: "assets/Intern/astar_logo.webp", alt: "A*STAR Institute of Microelectronics logo", contain: true },
       problem: "The project required software infrastructure to support monitoring and analysis of proprietary sensor data. Due to confidentiality and NDA considerations, only the general technical scope is shown.",
       process: "Worked as a Software Application Intern at A*STAR Institute of Microelectronics, supporting a sensor-related web application and related programming / lab-adjacent tasks.",
       solution: "Developed and documented components for an ASP.NET Core 5 MVC web application with MQTT Publisher–Subscriber architecture, SQL Server, Entity Framework Core, CRUD operations, CSV import/export, login/registration scaffolding, dashboards, live graphing concepts, dependency injection, and middleware.",
@@ -121,98 +130,12 @@
       links: []
     },
 
-    /* ---------- ACADEMIC ---------- */
-    {
-      id: "audiometry", group: "academic",
-      title: "Pure Tone Audiometry Assessment & Recommendation",
-      tags: ["Research"],
-      coverLabel: "",
-      summary: "Analysed an audiometry case through air conduction, bone conduction, masking, hearing-loss classification, and implications for speech perception.",
-      feature: { src: ACAD + "PureToneAudiometry/Cover.webp", alt: "Pure tone audiometry assessment cover" },
-      problem: "Audiogram interpretation requires understanding the auditory pathway, test method, and difference between conductive, sensorineural, and mixed hearing loss.",
-      process: "Reviewed audiometric test principles, interpreted case results, and explained implications on speech perception and behaviour.",
-      solution: "Connected air/bone conduction results and masking logic to a structured hearing-loss classification and its real-world communication impact.",
-      stack: ["Pure Tone Audiometry", "Air Conduction", "Bone Conduction", "Masking", "Hearing Loss Classification", "Technical Reporting"],
-      results: "Produced a structured biomedical report connecting test results to practical hearing and communication implications.",
-      evidence: [
-        { src: ACAD + "PureToneAudiometry/FinalAudiogram.webp", alt: "Final audiogram plot", caption: "Final audiogram" },
-        { src: ACAD + "PureToneAudiometry/DiagnosisofAudiogram.webp", alt: "Audiogram diagnosis breakdown", caption: "Audiogram diagnosis" }
-      ],
-      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1YVn8LxsLhAY9E46pz8WXbh-1HwOsLRO5/view?usp=sharing" }]
-    },
-    {
-      id: "parametric", group: "academic",
-      title: "Parametric Modelling with Rhino Grasshopper",
-      tags: ["Creative Technology", "Product Design"],
-      summary: "A computational design study inspired by stalactite cave formations using parametric terrain logic.",
-      feature: { src: ACAD + "ParametricModel/Cover.webp", alt: "Parametric stalactite cave-form model" },
-      problem: "Natural cave structures have irregular, organic forms that are difficult to model manually while preserving controlled variation.",
-      process: "Explored mathematical and visual parameters to create a cave-like generative form through iterative computational design.",
-      solution: "Used sine-based overhang terrain logic and Voronoi-mapped base terrain to simulate stalactite and rocky surface variation.",
-      stack: ["Rhino", "Grasshopper", "Parametric Design", "Voronoi", "Sine Functions", "Computational Design"],
-      results: "Produced a 3×3 parameter matrix showing how changes in complexity, base resolution, and terrain displacement affect the final form.",
-      evidence: [
-        { src: ACAD + "ParametricModel/Slide2.webp", alt: "Parametric model process — terrain logic", caption: "Terrain logic" },
-        { src: ACAD + "ParametricModel/Slide3.webp", alt: "Parametric model process — form generation", caption: "Form generation" },
-        { src: ACAD + "ParametricModel/Slide5.webp", alt: "Parametric model — parameter matrix", caption: "Parameter matrix" }
-      ], links: []
-    },
-    {
-      id: "lca", group: "academic",
-      title: "Life Cycle Analysis Report",
-      tags: ["Sustainability", "Research", "Data / Modelling"],
-      coverLabel: "",
-      summary: "Compared single-use PET cups, biodegradable bamboo cups, and reusable polycarbonate cups through life-cycle analysis.",
-      feature: { src: ACAD + "LCA/Cover.webp", alt: "Life cycle analysis of disposable, biodegradable, and reusable cups" },
-      problem: "Sustainable product decisions require evaluating environmental impact across material, use, and end-of-life stages rather than relying on surface-level assumptions.",
-      process: "Analysed product alternatives, defined assumptions, compared energy impact, and documented life-cycle stages.",
-      solution: "Built a comparative framework across material, use, and end-of-life stages with explicit functional-unit definitions.",
-      stack: ["Life Cycle Analysis", "Functional Unit Definition", "Material Stage", "Use Stage", "End-of-Life Stage", "Energy Impact Estimation"],
-      results: "Created a comparative sustainability analysis that weighed trade-offs across disposable, biodegradable, and reusable product options.",
-      evidence: [
-        { src: ACAD + "LCA/Impact Assessment.webp", alt: "Life-cycle impact assessment", caption: "Impact assessment" },
-        { src: ACAD + "LCA/LCA Calculation.webp", alt: "Life-cycle analysis calculation table", caption: "LCA calculation" }
-      ],
-      links: []
-    },
-    {
-      id: "double-diamond", group: "academic",
-      title: "Double-Diamond Centric Product Development",
-      tags: ["Human-Centred Design", "Product Design"],
-      summary: "Designed “NestAway / Snack Overflow,” a canteen seating and passive bird-deterrence system to improve comfort in SUTD's dining environment.",
-      feature: { src: ACAD + "DTI/Auraplan_Cover.webp", alt: "Auraplan canteen seating and bird-deterrence concept" },
-      problem: "SUTD canteen users experience pain points around seating comfort, privacy, bag storage, bird disturbance, spillage, and ambiguous vacancy.",
-      process: "Used design thinking and downselection to identify seating as a major touchpoint, then developed a partition-origami bird shelter concept with modular subsystems.",
-      solution: "A fully integrated partitioned seating and passive bird deterrence system with storage, modular joints, privacy elements, and interactive aesthetic qualities.",
-      stack: ["Double Diamond", "Site Observation", "Product Ideation", "Downselection", "Prototyping", "User-Centred Design"],
-      results: "Generated a concept balancing harmony, comfort, convenience, and delightfulness in communal dining.",
-      evidence: [],
-      links: [
-        { label: "Critical image (PDF)", href: "https://drive.google.com/file/d/11RhMZL88kFH3jxENb7OHzgBXMWlWsVhf/view?usp=sharing" },
-        { label: "Digital site model (PDF)", href: "https://drive.google.com/file/d/1YCkGmKn4kHD2TPIKeqxyON2qyNXSAsXl/view?usp=sharing" },
-        { label: "Part 2 report (PDF)", href: "https://drive.google.com/file/d/1TJOn3S1LMIA-C-E5URcn9Nw3ehgKYJcv/view?usp=sharing" }
-      ]
-    },
-    {
-      id: "linear-regression", group: "academic",
-      title: "Multi-Feature CO₂ Prediction with Linear Regression",
-      tags: ["Data / Modelling", "Research", "Sustainability"],
-      summary: "Built a data-driven model to predict U.S. transport-sector CO₂ emissions and test mode-shift strategies.",
-      feature: { src: ACAD + "ML/Cover.webp", alt: "Multi-feature CO₂ prediction with linear regression" },
-      problem: "Policy and transport planners need transparent modelling tools that connect passenger traffic, mode mix, and CO₂ emissions.",
-      process: "Performed data import, cleaning, feature analysis, visualisation, correlation checking, and linear modelling.",
-      solution: "Used a 33-year U.S. dataset with features such as registered vehicles, population, rapid-transit-to-resident ratio, and passenger traffic by transit, highway, intercity, and aviation.",
-      stack: ["Python", "Data Cleaning", "Linear Regression", "Correlation Matrix", "Feature Engineering", "Scenario Modelling", "Transport CO₂"],
-      results: "Created a model concept for forecasting emissions and evaluating what-if transport mode-shift scenarios.",
-      evidence: [
-        { src: ACAD + "ML/Feature Prediction.webp", alt: "Feature prediction results from the CO\u2082 model", caption: "Feature Prediction" }
-      ],
-      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1pdLxPyg57m73bAovpHYkQGSFHYhPGePS/view?usp=sharing" }]
-    },
+    /* ---------- ACADEMIC (ordered by complexity) ---------- */
     {
       id: "unitrack", group: "academic",
       title: "UniTrack — Android University Application Tracker",
-      tags: ["IoT / Software Engineering", "Human-Centred Design", "Data / Modelling"],
+      period: "Completed Apr 2026",
+      tags: ["Software / IoT", "Human-Centred & Product Design"],
       summary: "An Android-native app for profile building, eligibility context, college-list management, and deadline tracking.",
       feature: { src: ACAD + "UniTrack/Cover.webp", alt: "UniTrack Android app shown on a phone" },
       problem: "Pre-tertiary students applying to multiple universities often manage fragmented requirements, essays, deadlines, and eligibility information manually.",
@@ -229,9 +152,46 @@
       links: [{ label: "App demo (video)", href: "https://drive.google.com/file/d/1OWoS8dMoi8M2Imk2-Lxw_v2AG_b2kzqj/view?usp=sharing" }]
     },
     {
+      id: "double-diamond", group: "academic",
+      title: "Double-Diamond Centric Product Development",
+      period: "Completed Apr 2025",
+      tags: ["Human-Centred & Product Design"],
+      summary: "Designed “NestAway / Snack Overflow,” a canteen seating and passive bird-deterrence system to improve comfort in SUTD's dining environment.",
+      feature: { src: ACAD + "DTI/Auraplan_Cover.webp", alt: "Auraplan canteen seating and bird-deterrence concept" },
+      problem: "SUTD canteen users experience pain points around seating comfort, privacy, bag storage, bird disturbance, spillage, and ambiguous vacancy.",
+      process: "Used design thinking and downselection to identify seating as a major touchpoint, then developed a partition-origami bird shelter concept with modular subsystems.",
+      solution: "A fully integrated partitioned seating and passive bird deterrence system with storage, modular joints, privacy elements, and interactive aesthetic qualities.",
+      stack: ["Double Diamond", "Site Observation", "Product Ideation", "Downselection", "Prototyping", "User-Centred Design"],
+      results: "Generated a concept balancing harmony, comfort, convenience, and delightfulness in communal dining.",
+      evidence: [],
+      links: [
+        { label: "Critical image (PDF)", href: "https://drive.google.com/file/d/11RhMZL88kFH3jxENb7OHzgBXMWlWsVhf/view?usp=sharing" },
+        { label: "Digital site model (PDF)", href: "https://drive.google.com/file/d/1YCkGmKn4kHD2TPIKeqxyON2qyNXSAsXl/view?usp=sharing" },
+        { label: "Part 2 report (PDF)", href: "https://drive.google.com/file/d/1TJOn3S1LMIA-C-E5URcn9Nw3ehgKYJcv/view?usp=sharing" }
+      ]
+    },
+    {
+      id: "solarbin", group: "academic",
+      title: "Standalone Photovoltaic System for Smart Bin",
+      period: "Completed Aug 2025",
+      tags: ["Sustainability", "Software / IoT"],
+      tagline: "A standalone solar power system for a self-sufficient smart bin.",
+      summary: "A compact standalone solar power system that keeps a smart bin's sensors and communication modules running independently of the grid.",
+      feature: { src: ACAD + "DES/Cover.webp", alt: "Standalone photovoltaic system for a smart bin prototype" },
+      problem: "As Singapore advances Smart Nation 2.0, smart bins need continuous power for their sensors, motors, and communication modules — raising the question of how to power them without relying on the grid.",
+      process: "Measured load current across operating states with a shunt resistor and oscilloscope, analysed peak-sun-hour constraints, then sized and integrated the battery, PV panel, charge controller, and custom casing into a working prototype.",
+      solution: "A compact battery-backed photovoltaic system powers the bin off-grid, with a side-mounted panel casing kept off the lid to reduce strain on the opening mechanism.",
+      stack: ["Photovoltaic Design", "Battery Sizing", "Panel Sizing", "Shunt Resistor Measurement", "Oscilloscope Testing", "Load Analysis", "Li-Po Battery", "Charge Controller", "Fusion / CAD Casing", "Energy Systems"],
+      results: "Sized a 3.7 V \u22651000 mAh Li-Po battery against a ~867 mAh requirement and a 6 V, 480 mA panel for worst-case sun hours, producing a working scaled prototype with schematics and upscaling recommendations.",
+      demonstrates: "Applied energy-system design, engineering measurement, hardware integration, and sustainability-oriented prototyping.",
+      evidence: [],
+      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1ZilkP-9BT8PNPfRDkkkcxtmqr86Aivb6/view?usp=sharing" }]
+    },
+    {
       id: "rewardnet", group: "academic",
       title: "RewardNet™ — Algorithmic Reward System Proposal",
-      tags: ["Data / Modelling", "Product Design", "IoT / Software Engineering"],
+      period: "Completed Apr 2026",
+      tags: ["Data & Modelling", "Human-Centred & Product Design"],
       summary: "A full-suite reward ecosystem for a hypothetical mega-platform using data structures and algorithmic system logic.",
       feature: { src: ACAD + "RewardNet/Cover.webp", alt: "RewardNet algorithmic reward system proposal" },
       problem: "A large platform needs a reward system that can incentivise recent meaningful activity without relying only on lifetime accumulation or harsh resets.",
@@ -245,9 +205,30 @@
       links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1gJYdDXVYQgakbJUU2_4waoBEdzbr8VRM/view?usp=sharing" }]
     },
     {
+      id: "linear-regression", group: "academic",
+      title: "Multi-Feature CO₂ Prediction with Linear Regression",
+      period: "Completed Aug 2025",
+      tags: ["Data & Modelling", "Sustainability"],
+      summary: "Built a data-driven model to predict U.S. transport-sector CO₂ emissions and test mode-shift strategies.",
+      feature: { src: ACAD + "ML/Cover.webp", alt: "Multi-feature CO₂ prediction with linear regression" },
+      problem: "Policy and transport planners need transparent modelling tools that connect passenger traffic, mode mix, and CO₂ emissions.",
+      process: "Performed data import, cleaning, feature analysis, visualisation, correlation checking, and linear modelling.",
+      solution: "Used a 33-year U.S. dataset with features such as registered vehicles, population, rapid-transit-to-resident ratio, and passenger traffic by transit, highway, intercity, and aviation.",
+      stack: ["Python", "Data Cleaning", "Linear Regression", "Correlation Matrix", "Feature Engineering", "Scenario Modelling", "Transport CO₂"],
+      results: "Created a model concept for forecasting emissions and evaluating what-if transport mode-shift scenarios.",
+      evidence: [
+        { src: ACAD + "ML/Feature Prediction.webp", alt: "Feature prediction results from the CO\u2082 model", caption: "Feature Prediction" }
+      ],
+      links: [
+        { label: "Full report (PDF)", href: "https://drive.google.com/file/d/1pdLxPyg57m73bAovpHYkQGSFHYhPGePS/view?usp=sharing" },
+        { label: "GitHub repository", href: "https://github.com/JustinTeh-Prog/DDW_ML" }
+      ]
+    },
+    {
       id: "eudaimonia", group: "academic",
       title: "Designing for Eudaimonia at Singapore's Bus Stops",
-      tags: ["Human-Centred Design", "Research", "Product Design"],
+      period: "Completed Apr 2026",
+      tags: ["Human-Centred & Product Design"],
       summary: "A participatory design project exploring how bus-stop infrastructure could better support comfort, dignity, and everyday wellbeing.",
       feature: { src: ACAD + "HCD/Cover.webp", alt: "Designing for Eudaimonia at Singapore's bus stops — concept cover" },
       problem: "Bus stops are functional but can still create uncertainty, discomfort, and missed communication between commuters and bus captains.",
@@ -262,40 +243,81 @@
       ], links: []
     },
     {
-      id: "solarbin", group: "academic",
-      title: "Standalone Photovoltaic System for Smart Bin",
-      tags: ["Research", "IoT / Software Engineering", "Sustainability"],
-      tagline: "A standalone solar power system for a self-sufficient smart bin.",
-      summary: "A compact standalone photovoltaic power system designed to support smart bin sensors and communication modules, reducing grid reliance while improving the feasibility of sustainable smart infrastructure.",
-      feature: { src: ACAD + "DES/Cover.webp", alt: "Standalone photovoltaic system for a smart bin prototype" },
-      problem: "As Singapore advances Smart Nation 2.0, public infrastructure is increasingly expected to integrate sensing, automation, and digital monitoring. Smart bins introduce continuous power requirements for sensors, motors, and communication modules. This project explored how a standalone photovoltaic system could power a smart bin efficiently, reducing grid dependence while supporting sustainable digital infrastructure.",
-      process: "Worked on a Designing Energy Systems academic project to size, test, and validate a standalone solar-powered smart bin. The process involved measuring load current across operating states, using a shunt resistor and oscilloscope to capture fast current draw, analysing peak sun hour constraints, sizing the battery and PV panel, and integrating the panel, charge controller, battery, and custom casing into a working prototype.",
-      solution: "A compact photovoltaic system with battery storage powers the smart bin independently from the grid. The design uses a side-mounted solar panel casing, a Li-Po battery, and a charge controller on a scaled smart-bin prototype \u2014 with the panel kept off the lid to reduce mechanical strain on the opening mechanism.",
-      stack: ["Photovoltaic Design", "Battery Sizing", "Panel Sizing", "Shunt Resistor Measurement", "Oscilloscope Testing", "Load Analysis", "Li-Po Battery", "Charge Controller", "Fusion / CAD Casing", "Energy Systems"],
-      results: "Testing estimated a true daily load of ~420.5 mAh/day and a final adjusted battery requirement of ~867.2 mAh, making a 3.7 V \u22651000 mAh Li-Po battery a practical choice with margin. The PV system was sized against a worst-case December 3.97 PSH assumption using a 6 V, 480 mA panel setup \u2014 producing a working scaled prototype, electrical and mechanical schematics, charging-scenario analysis, and upscaled outdoor-use recommendations.",
-      demonstrates: "Applied energy-system design, engineering measurement, hardware integration, and sustainability-oriented prototyping.",
-      evidence: [],
-      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1ZilkP-9BT8PNPfRDkkkcxtmqr86Aivb6/view?usp=sharing" }]
+      id: "lca", group: "academic",
+      title: "Life Cycle Analysis Report",
+      period: "Completed Apr 2025",
+      tags: ["Sustainability", "Data & Modelling"],
+      coverLabel: "",
+      summary: "Compared single-use PET cups, biodegradable bamboo cups, and reusable polycarbonate cups through life-cycle analysis.",
+      feature: { src: ACAD + "LCA/Cover.webp", alt: "Life cycle analysis of disposable, biodegradable, and reusable cups" },
+      problem: "Sustainable product decisions require evaluating environmental impact across material, use, and end-of-life stages rather than relying on surface-level assumptions.",
+      process: "Analysed product alternatives, defined assumptions, compared energy impact, and documented life-cycle stages.",
+      solution: "Built a comparative framework across material, use, and end-of-life stages with explicit functional-unit definitions.",
+      stack: ["Life Cycle Analysis", "Functional Unit Definition", "Material Stage", "Use Stage", "End-of-Life Stage", "Energy Impact Estimation"],
+      results: "Created a comparative sustainability analysis that weighed trade-offs across disposable, biodegradable, and reusable product options.",
+      evidence: [
+        { src: ACAD + "LCA/Impact Assessment.webp", alt: "Life-cycle impact assessment", caption: "Impact assessment" },
+        { src: ACAD + "LCA/LCA Calculation.webp", alt: "Life-cycle analysis calculation table", caption: "LCA calculation" }
+      ],
+      links: []
+    },
+    {
+      id: "parametric", group: "academic",
+      title: "Parametric Modelling with Rhino Grasshopper",
+      period: "Completed Dec 2024",
+      tags: ["Human-Centred & Product Design"],
+      summary: "A computational design study inspired by stalactite cave formations using parametric terrain logic.",
+      feature: { src: ACAD + "ParametricModel/Cover.webp", alt: "Parametric stalactite cave-form model" },
+      problem: "Natural cave structures have irregular, organic forms that are difficult to model manually while preserving controlled variation.",
+      process: "Explored mathematical and visual parameters to create a cave-like generative form through iterative computational design.",
+      solution: "Used sine-based overhang terrain logic and Voronoi-mapped base terrain to simulate stalactite and rocky surface variation.",
+      stack: ["Rhino", "Grasshopper", "Parametric Design", "Voronoi", "Sine Functions", "Computational Design"],
+      results: "Produced a 3×3 parameter matrix showing how changes in complexity, base resolution, and terrain displacement affect the final form.",
+      evidence: [
+        { src: ACAD + "ParametricModel/Slide2.webp", alt: "Parametric model process — terrain logic", caption: "Terrain logic" },
+        { src: ACAD + "ParametricModel/Slide3.webp", alt: "Parametric model process — form generation", caption: "Form generation" },
+        { src: ACAD + "ParametricModel/Slide5.webp", alt: "Parametric model — parameter matrix", caption: "Parameter matrix" }
+      ], links: []
+    },
+    {
+      id: "audiometry", group: "academic",
+      title: "Pure Tone Audiometry Assessment & Recommendation",
+      period: "Completed Jul 2021",
+      tags: ["Data & Modelling"],
+      coverLabel: "",
+      summary: "Analysed an audiometry case through air conduction, bone conduction, masking, hearing-loss classification, and implications for speech perception.",
+      feature: { src: ACAD + "PureToneAudiometry/Cover.webp", alt: "Pure tone audiometry assessment cover" },
+      problem: "Audiogram interpretation requires understanding the auditory pathway, test method, and difference between conductive, sensorineural, and mixed hearing loss.",
+      process: "Reviewed audiometric test principles, interpreted case results, and explained implications on speech perception and behaviour.",
+      solution: "Connected air/bone conduction results and masking logic to a structured hearing-loss classification and its real-world communication impact.",
+      stack: ["Pure Tone Audiometry", "Air Conduction", "Bone Conduction", "Masking", "Hearing Loss Classification", "Technical Reporting"],
+      results: "Produced a structured biomedical report connecting test results to practical hearing and communication implications.",
+      evidence: [
+        { src: ACAD + "PureToneAudiometry/FinalAudiogram.webp", alt: "Final audiogram plot", caption: "Final audiogram" },
+        { src: ACAD + "PureToneAudiometry/DiagnosisofAudiogram.webp", alt: "Audiogram diagnosis breakdown", caption: "Audiogram diagnosis" }
+      ],
+      links: [{ label: "Full report (PDF)", href: "https://drive.google.com/file/d/1YVn8LxsLhAY9E46pz8WXbh-1HwOsLRO5/view?usp=sharing" }]
     },
 
     /* ---------- GLOBAL EXCHANGE ---------- */
     {
       id: "cqu", group: "exchange",
       title: "DIVE Immersion at Chongqing University: 心间 | Close to Heart",
-      tags: ["Global Exchange", "Human-Centred Design", "AI-Powered", "Product Design"],
-      summary: "A cross-cultural design project exploring companionship and reassurance for empty-nest elderly residents in China.",
+      tags: ["1-Week Exchange", "Human-Centred & Product Design", "AI-Powered"],
+      summary: "A one-week cross-cultural design immersion exploring companionship and reassurance for empty-nest elderly residents in China.",
       feature: { src: EX + "GEO_CQU.webp", alt: "Close to Heart eldercare companion concept at Chongqing University" },
       problem: "Empty-nest elderly residents may experience loneliness, digital fatigue, reluctance to disturb their children, and barriers to complex app-based systems.",
-      process: "Worked in a cross-cultural student team to define user insights, generate concepts, study precedent products, and develop a speech-based sentimental companion concept.",
+      process: "Over an intensive one-week immersion, worked in a cross-cultural student team to define user insights, generate concepts, study precedent products, and develop a speech-based sentimental companion concept.",
       solution: "“心间 | Close to Heart” is a non-robotic, familiar, speech-based companion concept designed to provide delightful everyday companionship and timely reassurance for families. It receives microphone input, converts speech to text, interprets context through NLU and personalisation, plans tone by dialect, politeness, pacing and length, composes a reply, and outputs Mandarin speech — with future routine nudges, quiet hours, family status updates, and emergency tool-calling.",
       stack: ["Human-Centred Design", "Eldercare", "Speech Interface", "GenAI Wrapper", "ASR", "NLU", "Text-to-Speech", "Proactive Nudges", "Wireframing", "Cross-Cultural Design"],
       results: "Developed a socially grounded AI companion concept with form factor, software stack, wireframe, validation themes, business model, and impact considerations.",
-      evidence: [], links: []
+      evidence: [],
+      links: [{ label: "Project proposal (PDF)", href: "https://drive.google.com/file/d/1kikeuVh4YeisHX0_g3wP9oZx2mjB1fSX/view?usp=sharing" }]
     },
     {
       id: "tiide", group: "exchange",
       title: "TIIDE Exchange at Zhejiang University: GenAI Beauty Campaign",
-      tags: ["Global Exchange", "AI-Powered", "Creative Technology", "Product Design"],
+      tags: ["Global Exchange", "AI-Powered", "Creative Technology", "Human-Centred & Product Design"],
       summary: "“Generations of Beauty / 代代美丽: The Golden Thread of Time,” a GenAI campaign connecting L'Oréal Paris Age Perfect, the Double Ninth Festival, and intergenerational beauty.",
       feature: { src: ACAD + "TIIDE_GenAI/Cover.webp", alt: "Generations of Beauty GenAI campaign cover" },
       problem: "The project explored how AI-generated campaign assets and a coded website could translate cultural values such as filial piety, longevity, and intergenerational connection into a modern brand experience.",
@@ -311,15 +333,12 @@
         { src: ACAD + "TIIDE_GenAI/flux1kontext.webp", alt: "FLUX.1 Kontext image editing workflow", caption: "FLUX.1 Kontext editing" },
         { src: EX + "TIIDE/TIIDE_Project.webp", alt: "TIIDE exchange team project", caption: "TIIDE exchange project" }
       ],
-      links: [
-        { label: "TIIDE programme certificate (PDF)", href: "https://drive.google.com/file/d/1MP41Cttm8QnH3nRn4Hg3X4TcNUpJGu0g/view?usp=sharing" },
-        { label: "TIIDE programme transcript (PDF)", href: "https://drive.google.com/file/d/1u59tdUUWwhJZFzGoE2jnGpraJy4oor0y/view?usp=sharing" }
-      ]
+      links: []
     },
     {
       id: "enjoymusic", group: "internship",
       title: "EnjoyMusic Internship: AI-Driven Entertainment & Show Technology",
-      tags: ["Global Exchange", "Intern", "AI-Powered", "Creative Technology", "IoT / Software Engineering"],
+      tags: ["AI-Powered", "Creative Technology", "Software / IoT"],
       summary: "An AI entertainment internship in Shanghai exploring immersive music, visual systems, AI-driven mapping visuals, lighting automation, and creative-technology workflows.",
       feature: { src: INTERN + "Cover.webp", alt: "EnjoyMusic AI entertainment internship in Shanghai" },
       problem: "The entertainment industry increasingly needs workflows that connect creative direction, AI generation, visual production, music analysis, and live show execution.",
@@ -335,8 +354,7 @@
       links: [
         { label: "AI mapping visual — sample 1 (video)", href: "https://drive.google.com/file/d/1LihrrgyKInwXXFKa6vKEKnZlgst5GQO8/view?usp=sharing" },
         { label: "AI mapping visual — sample 2 (video)", href: "https://drive.google.com/file/d/1VK1ouYlEXdIXICXywO7VsEutRQVWcpfc/view?usp=sharing" },
-        { label: "Final defence deck (PDF)", href: "https://drive.google.com/file/d/14WVVCeIUZRnLQ1U7cVAi7eyMeIG0jdLf/view?usp=sharing" },
-        { label: "Internship certificate (PDF)", href: "https://drive.google.com/file/d/1wNsjglgm6AxfqjUY95vTjtATMCOiW_cf/view?usp=sharing" }
+        { label: "Final defence deck (PDF)", href: "https://drive.google.com/file/d/14WVVCeIUZRnLQ1U7cVAi7eyMeIG0jdLf/view?usp=sharing" }
       ]
     }
   ];
@@ -354,7 +372,7 @@
         { src: ARTS + "3RUSH (2).jpg", alt: "Rush performance 2" },
         { src: ARTS + "3RUSH (3).jpg", alt: "Rush performance 3" }
       ] },
-    { title: "Spectacular", date: "7–14 Apr 2022", location: "TP Auditorium", role: "Lighting Director",
+    { title: "Spectacular 2022", date: "7–14 Apr 2022", location: "TP Auditorium", role: "Lighting Director",
       note: "Large-scale auditorium production requiring lighting planning, cue execution, and coordination with performers and crew.",
       images: [
         { src: ARTS + "4SPECTACULAR (1).jpg", alt: "Spectacular 1" },
@@ -364,7 +382,7 @@
     { title: "Blissful One-Stop Wedding Show", date: "10 Jan 2025", location: "Marina Bay Sands", role: "Lighting Operator",
       note: "External event experience supporting lighting operation in a professional venue environment.",
       images: [{ src: ARTS + "5XBOWS.jpg", alt: "Blissful Wedding Show lighting" }] },
-    { title: "Arts Fiesta 25", date: "6 Jul 2025", location: "Our Tampines Hub", role: "Lighting Director",
+    { title: "Arts Fiesta 2025", date: "6 Jul 2025", location: "Our Tampines Hub", role: "Lighting Director",
       note: "Community-facing arts showcase experience involving lighting direction for a multi-artform event.",
       images: [{ src: ARTS + "6ARTSFIESTA.jpg", alt: "Arts Fiesta 25 lighting" }] },
     { title: "Everything But The Brain", date: "25 Jul 2025", location: "SUTD Auditorium", role: "Lighting Director",
@@ -381,7 +399,7 @@
         { src: ARTS + "8Rockafall (2).jpg", alt: "Rockafall 2025 2" },
         { src: ARTS + "8Rockafall (3).jpg", alt: "Rockafall 2025 3" }
       ] },
-    { title: "Ori Finale 25", date: "20 Sep 2025", location: "SUTD Indoor Sports Hall", role: "Lighting Director",
+    { title: "Ori Finale 2025", date: "20 Sep 2025", location: "SUTD Indoor Sports Hall", role: "Lighting Director",
       note: "Large orientation finale production involving lighting design and show support in a non-traditional performance venue.",
       images: [
         { src: ARTS + "9OriFinale (1).JPG", alt: "Ori Finale 25 1" },
@@ -391,7 +409,8 @@
       note: "Led a student-run sophomore celebration programme for over 250 undergraduates, endorsed by SUTD’s Head of Pillars and Office of Student Life. Oversaw programme design, logistics, publicity, event coordination, and lighting direction from planning to execution.",
       links: [
         { label: "Event Montage", href: "https://www.youtube.com/watch?v=vV-fi9XaRfc&t=2s" },
-        { label: "Ceremony Premiere", href: "https://www.youtube.com/watch?v=vjNtHLwsDRc&t=3s" }
+        { label: "Ceremony Premiere", href: "https://www.youtube.com/watch?v=vjNtHLwsDRc&t=3s" },
+        { label: "Photo Album", href: "https://www.flickr.com/photos/204192074@N02/", type: "album" }
       ],
       images: [
         { src: ARTS + "10FNM (1).jpg", alt: "Fresh-No-More! 2026 1" },
@@ -451,12 +470,25 @@
     var cloud = $("#skills-cloud");
     var tabs = $("#skill-tabs");
     if (!cloud || !tabs) return;
-    var SETS = { technical: TECHNICAL_SKILLS, creative: CREATIVE_SKILLS };
+    var SETS = { technical: TECHNICAL_SKILLS, creative: CREATIVE_SKILLS, productions: PRODUCTION_SKILLS, team: TEAM_SKILLS };
     function render(cat) {
       cloud.classList.toggle("creative", cat === "creative");
       cloud.innerHTML = "";
       SETS[cat].forEach(function (s, i) {
-        var chip = el("span", "chip skill-pop", s);
+        var isObj = typeof s === "object";
+        var name = isObj ? s.name : s;
+        var cls = "chip skill-pop" + (isObj && s.bold ? " chip-bold" : "") + (isObj && s.libs ? " chip-expand" : "");
+        var chip = el("span", cls);
+        if (isObj && s.libs) {
+          chip.setAttribute("tabindex", "0");
+          chip.setAttribute("role", "button");
+          chip.setAttribute("aria-label", name + " \u2014 libraries: " + s.libs.join(", "));
+          chip.innerHTML = '<span class="chip-name">' + name + "</span>" +
+            '<span class="chip-caret" aria-hidden="true">+' + s.libs.length + "</span>" +
+            '<span class="chip-libs">' + s.libs.map(function (l) { return '<span class="lib">' + l + "</span>"; }).join("") + "</span>";
+        } else {
+          chip.textContent = name;
+        }
         chip.style.animationDelay = Math.min(i * 26, 520) + "ms";
         cloud.appendChild(chip);
       });
@@ -489,13 +521,17 @@
   /* ---------------------------------------------------------
      RENDER: project cards
      --------------------------------------------------------- */
-  function cardMedia(p, feature) {
+  function collectionOf(p) {
+    return p.group === "featured" ? "Capstone" : p.group === "academic" ? "Acad" : "";
+  }
+  function cardMedia(p, feature, coll) {
+    var badge = coll ? '<span class="card-badge coll-' + coll.toLowerCase() + '">' + coll + "</span>" : "";
     if (p.feature) {
       return '<div class="card-media' + (feature ? " is-feature" : "") + '">' +
-        imgTag(p.feature.src, p.feature.alt, p.title) + "</div>";
+        imgTag(p.feature.src, p.feature.alt, p.title, p.feature.contain ? "is-contain" : "") + badge + "</div>";
     }
     return '<div class="card-media">' +
-      (p.nda ? placeholderMarkup("Confidential — NDA", "") : placeholderMarkup(p.title, p.coverLabel)) + "</div>";
+      (p.nda ? placeholderMarkup("Confidential — NDA", "") : placeholderMarkup(p.title, p.coverLabel)) + badge + "</div>";
   }
 
   /* Short, at-a-glance taglines for the compact portfolio cards */
@@ -517,35 +553,38 @@
 
   function buildCard(p, feature) {
     var card = el("article", "card reveal");
+    var coll = collectionOf(p);
     card.setAttribute("data-tags", p.tags.join("|"));
+    card.setAttribute("data-collection", coll);
     card.setAttribute("data-open", p.id);        // whole card is clickable
     card.setAttribute("role", "button");
     card.setAttribute("tabindex", "0");
     card.setAttribute("aria-label", "View project: " + p.title);
     card.innerHTML =
-      cardMedia(p, false) +
+      cardMedia(p, false, coll) +
       '<div class="card-body">' +
         '<span class="card-eyebrow">' + p.tags[0] + "</span>" +
         "<h3>" + p.title + "</h3>" +
-        '<p class="card-tagline">' + taglineFor(p) + "</p>" +
       "</div>";
     return card;
   }
 
-  function renderGroup(containerId, group, feature) {
+  function renderInto(containerId, groups) {
     var c = $("#" + containerId);
-    PROJECTS.filter(function (p) { return p.group === group; })
-      .forEach(function (p) { c.appendChild(buildCard(p, feature)); });
+    if (!c) return;
+    groups.forEach(function (g) {
+      PROJECTS.filter(function (p) { return p.group === g; })
+        .forEach(function (p) { c.appendChild(buildCard(p)); });
+    });
   }
-  renderGroup("cards-featured", "featured", true);
-  renderGroup("cards-internship", "internship", false);
-  renderGroup("cards-academic", "academic", false);
+  renderInto("cards-projects", ["featured", "academic"]);
+  renderInto("cards-internship", ["internship"]);
 
   /* ---------------------------------------------------------
      RENDER: Highlights — interactive sliding gallery
      --------------------------------------------------------- */
   var HIGHLIGHTS = [
-    { id: "iadl", label: "Flagship Project", kicker: "Assistive Tech · Patent-supported",
+    { id: "iadl", label: "Capstone Project", kicker: "Assistive Tech · Patent-supported",
       blurb: "Motion + force sensing for everyday rehab tasks \u2014 supporting a patent filing via IP2SG." },
     { id: "astar", label: "Internship · A*STAR IME", kicker: "Full-stack IoT software",
       blurb: "An ASP.NET Core MVC app with MQTT, SQL Server, and live dashboards for sensor monitoring." },
@@ -667,17 +706,43 @@
   })();
 
   /* ---------------------------------------------------------
+     RENDER: Highlights — compact cards (cover + tag + title)
+     Merged into the About section.
+     --------------------------------------------------------- */
+  (function buildHighlightsMini() {
+    var host = $("#hl-mini");
+    if (!host) return;
+    HIGHLIGHTS.forEach(function (h) {
+      var p = PROJECTS.filter(function (x) { return x.id === h.id; })[0] || {};
+      var media = '<div class="hlm-media">' +
+        (p.feature ? imgTag(p.feature.src, p.feature.alt, p.title, p.feature.contain ? "is-contain" : "")
+          : (p.nda ? placeholderMarkup("Confidential — NDA", "") : placeholderMarkup(p.title, p.coverLabel))) + "</div>";
+      var card = el("article", "hlm-card reveal");
+      card.setAttribute("data-open", h.id);
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", "View " + (p.title || h.label));
+      card.innerHTML = media +
+        '<div class="hlm-body">' +
+          '<span class="hlm-label">' + h.label + "</span>" +
+          "<h3>" + (p.title || "") + "</h3>" +
+        "</div>";
+      host.appendChild(card);
+    });
+  })();
+
+  /* ---------------------------------------------------------
      RENDER: Global Perspective — exchange cards
      --------------------------------------------------------- */
   var EXCHANGE = [
-    { id: "cqu", programme: "GEO Programme", date: "Aug 2025", place: "Chongqing University, China",
+    { id: "cqu", programme: "GEO Programme", date: "Aug 2025 · 1 week", place: "Chongqing University, China",
       project: "心间 | Close to Heart",
       bullets: [
-        "Cross-cultural design team tackling loneliness among empty-nest elderly",
+        "One-week cross-cultural immersion tackling loneliness among empty-nest elderly",
         "Field research, interviews, and concept validation in a new cultural context",
         "Designed a speech-based GenAI companion (ASR → NLU → dialect-aware speech)"
       ] },
-    { id: "tiide", programme: "TIIDE Programme", date: "Sept – Dec 2025", place: "Zhejiang University, China",
+    { id: "tiide", programme: "TIIDE Programme", date: "Oct – Dec 2025 · 3 months", place: "Zhejiang University, China",
       project: "Generations of Beauty — GenAI Campaign",
       bullets: [
         "GenAI beauty campaign linking L'Oréal Age Perfect to the Double Ninth Festival",
@@ -747,24 +812,24 @@
       b.setAttribute("aria-pressed", String(b.dataset.filter === filter));
     });
     var anyVisible = false;
-    document.querySelectorAll("#work .card").forEach(function (card) {
-      var tags = card.getAttribute("data-tags").split("|");
-      var show = filter === "All" || tags.indexOf(filter) !== -1;
+    document.querySelectorAll("#projects .card").forEach(function (card) {
+      var show;
+      if (filter === "All") show = true;
+      else if (filter === "Capstone" || filter === "Acad") show = card.getAttribute("data-collection") === filter;
+      else show = card.getAttribute("data-tags").split("|").indexOf(filter) !== -1;
       card.classList.toggle("is-hidden", !show);
       if (show) anyVisible = true;
-    });
-    // Hide a subhead group when it has no visible cards
-    document.querySelectorAll("#work .cards").forEach(function (grid) {
-      var visible = grid.querySelectorAll(".card:not(.is-hidden)").length;
-      var head = grid.previousElementSibling; // the .subhead
-      if (head && head.classList.contains("subhead")) head.style.display = visible ? "" : "none";
-      grid.style.display = visible ? "" : "none";
     });
     $("#no-results").style.display = anyVisible ? "none" : "block";
   }
   filterBar.addEventListener("click", function (e) {
     var b = e.target.closest(".filter-btn");
-    if (b) applyFilter(b.dataset.filter);
+    if (!b) return;
+    if (b.dataset.filter !== "All" && activeFilter === b.dataset.filter) {
+      applyFilter("All");
+    } else {
+      applyFilter(b.dataset.filter);
+    }
   });
 
   /* ---------------------------------------------------------
@@ -799,7 +864,7 @@
         '<p class="event-meta"><span>📍 ' + ev.location + "</span><span>🗓 " + ev.date + "</span></p>" +
         '<p class="event-note">' + ev.note + "</p>" +
         (ev.credit ? '<p class="event-credit"><svg class="ig-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle></svg><span>' + (ev.credit.prefix || "Photos by") + ' <a class="ig-link" href="' + ev.credit.url + '" target="_blank" rel="noopener">' + ev.credit.handle + "</a></span></p>" : "") +
-        (ev.links && ev.links.length ? '<div class="event-links">' + ev.links.map(function (l) { return '<a class="event-link" href="' + l.href + '" target="_blank" rel="noopener"><svg class="yt-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5zM9.6 15.6V8.4l6.3 3.6z"></path></svg>' + l.label + "</a>"; }).join("") + "</div>" : "") +
+        (ev.links && ev.links.length ? '<div class="event-links">' + ev.links.map(function (l) { return '<a class="event-link" href="' + l.href + '" target="_blank" rel="noopener">' + (l.type === "album" ? '<svg class="yt-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>' : '<svg class="yt-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5zM9.6 15.6V8.4l6.3 3.6z"></path></svg>') + l.label + "</a>"; }).join("") + "</div>" : "") +
       "</div>";
     eventsGrid.appendChild(node);
   });
@@ -869,17 +934,17 @@
     sels.forEach(function (s) { var n = document.querySelector(s); if (n) n.classList.add("reveal"); });
   }
   function setStagger() {
-    document.querySelectorAll("#work .cards, #events-grid, #about .micro-cards, #contact .contact-boxes").forEach(function (grid) {
+    document.querySelectorAll("#projects .cards, #internship .cards, #about .hl-mini, #events-grid, #contact .contact-boxes").forEach(function (grid) {
       Array.prototype.forEach.call(grid.children, function (ch, i) {
         if (ch.classList.contains("reveal")) ch.style.transitionDelay = Math.min(i * 70, 420) + "ms";
       });
     });
   }
   function tagReveals() {
-    addReveal(["#about .hero", "#about .narrative", "#arts .arts-hero", "#work .section-head", "#work .filters", "#contact .contact-wrap"]);
+    addReveal(["#about .hero", "#about .about-highlights", "#arts .arts-hero", "#projects .section-head", "#projects .filters", "#internship .section-head", "#contact .contact-wrap", "#contact .skills-overview"]);
     document.querySelectorAll("#about .micro, #about .skills-block").forEach(function (n) { n.classList.add("reveal"); });
     document.querySelectorAll("#arts .arts-openers img").forEach(function (n) { n.classList.add("reveal"); });
-    document.querySelectorAll("#work .subhead, #arts .subhead, #contact .contact-box").forEach(function (n) { n.classList.add("reveal"); });
+    document.querySelectorAll("#projects .subhead, #arts .subhead, #contact .contact-box").forEach(function (n) { n.classList.add("reveal"); });
     setStagger();
   }
   tagReveals();
@@ -911,7 +976,7 @@
   var navList = $("#navlist");
   var navToggle = $(".nav-toggle");
   var navEl = document.querySelector(".site-nav");
-  var sectionIds = ["about", "highlights", "exchange", "work", "arts", "contact"];
+  var sectionIds = ["about", "exchange", "projects", "internship", "arts", "contact"];
 
   function navOffset() { return (navEl ? navEl.offsetHeight : 70) + 14; }
   function scrollToId(id) {
@@ -995,7 +1060,7 @@
     lastFocused = document.activeElement;
 
     modalHero.innerHTML = p.feature
-      ? imgTag(p.feature.src, p.feature.alt, p.title)
+      ? imgTag(p.feature.src, p.feature.alt, p.title, p.feature.contain ? "is-contain" : "")
       : (p.nda ? placeholderMarkup("Confidential — NDA", "") : placeholderMarkup(p.title, p.coverLabel));
 
     var evidence = "";
@@ -1032,6 +1097,7 @@
     modalBody.innerHTML =
       tagsMarkup(p.tags) +
       '<h2 id="modal-title">' + p.title + "</h2>" +
+      (p.period ? '<p class="modal-period">' + p.period + "</p>" : "") +
       '<p style="color:var(--ink-soft);font-size:1.05rem;">' + p.summary + "</p>" +
       (p.nda ? '<div class="nda-banner">🔒 ' + p.nda + "</div>" : "") +
       modalSection("Problem", p.problem) +
