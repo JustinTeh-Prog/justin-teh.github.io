@@ -1207,12 +1207,14 @@
         decided = true;
         horizontal = Math.abs(dx) > Math.abs(dy);   // lock to the dominant axis
       }
-      // Hijack the gesture for a horizontally-dominant swipe in either
-      // direction; otherwise leave vertical scrolling untouched.
+      // Hijack a horizontally-dominant swipe (either direction) to drag the
+      // panel, and cancel the event so the browser can't turn the same gesture
+      // into back/forward history navigation.
       if (decided && horizontal) {
+        if (e.cancelable) e.preventDefault();
         panel.style.transform = "translateX(" + dx + "px)";
       }
-    }, { passive: true });
+    }, { passive: false });
     panel.addEventListener("touchcancel", function () {
       if (!tracking) return;
       tracking = false;
