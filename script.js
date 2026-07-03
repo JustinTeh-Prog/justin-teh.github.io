@@ -1176,6 +1176,7 @@
     if (btn) openModal(btn.getAttribute("data-open"));
   });
   $("#modal-close").addEventListener("click", closeModal);
+  $("#modal-back").addEventListener("click", closeModal);
   modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
 
   // --- Mobile only: swipe-left to dismiss the expansion card ---
@@ -1212,6 +1213,11 @@
       if (decided && horizontal && dx < 0) {
         panel.style.transform = "translateX(" + dx + "px)";
       }
+    }, { passive: true });
+    panel.addEventListener("touchcancel", function () {
+      if (!tracking) return;
+      tracking = false;
+      reset(true);
     }, { passive: true });
     panel.addEventListener("touchend", function () {
       if (!tracking) return;
