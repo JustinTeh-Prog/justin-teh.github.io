@@ -697,7 +697,8 @@ main { padding: 28px 0 90px; }
 /* ============================================================
    REVISION 4 — SINGLE-SCROLL LAYOUT
    ============================================================ */
-html { scroll-padding-top: 88px; }
+html { scroll-padding-top: 88px; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 /* Sections stack vertically */
 .section { padding: clamp(54px, 8vw, 96px) 0; scroll-margin-top: 84px; position: relative; }
