@@ -1017,14 +1017,38 @@
   var sectionIds = ["about", "exchange", "projects", "internship", "arts", "contact"];
 
   function navOffset() { return (navEl ? navEl.offsetHeight : 70) + 14; }
+  var scrollFix = null;
   function scrollToId(id) {
+    if (scrollFix) { clearInterval(scrollFix); scrollFix = null; }
     if (id === "top") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
     var sec = document.getElementById(id);
     if (!sec) return;
-    var y = sec.getBoundingClientRect().top + window.scrollY - navOffset();
-    window.scrollTo({ top: y, behavior: "smooth" });
+    function targetY() {
+      return Math.round(sec.getBoundingClientRect().top + window.scrollY - navOffset());
+    }
+    window.scrollTo({ top: targetY(), behavior: "smooth" });
+    // Content above the target can change height mid-scroll (lazy images
+    // loading, reveal animations settling), which throws the landing spot off.
+    // Re-measure the target's live position a few times and correct until it
+    // settles — snapping instantly on the later passes.
+    var tries = 0;
+    scrollFix = setInterval(function () {
+      tries++;
+      var want = targetY();
+      var maxY = document.documentElement.scrollHeight - window.innerHeight;
+      if (want > maxY) want = maxY;
+      if (Math.abs(window.scrollY - want) > 3) {
+        window.scrollTo({ top: want, behavior: tries >= 3 ? "auto" : "smooth" });
+      }
+      if (tries >= 7) { clearInterval(scrollFix); scrollFix = null; }
+    }, 200);
   }
   function closeMobileNav() { navList.classList.remove("is-open"); navToggle.setAttribute("aria-expanded", "false"); }
+  ["touchstart", "wheel"].forEach(function (evt) {
+    window.addEventListener(evt, function () {
+      if (scrollFix) { clearInterval(scrollFix); scrollFix = null; }
+    }, { passive: true });
+  });
 
   document.querySelectorAll("[data-target]").forEach(function (btn) {
     btn.addEventListener("click", function () {
