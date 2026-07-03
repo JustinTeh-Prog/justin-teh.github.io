@@ -475,7 +475,8 @@ main { padding: 28px 0 90px; }
 }
 .lightbox.is-open { display: flex; }
 .lightbox-stage { position: relative; max-width: 1000px; width: 100%; }
-.lightbox-img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); }
+.lightbox-img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); transition: opacity 0.18s ease; }
+#lb-img.is-loading { opacity: 0; }
 .lightbox-cap { color: #f4f0e8; text-align: center; margin-top: 14px; font-size: 0.95rem; font-family: var(--mono); letter-spacing: 0.03em; }
 .lb-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
@@ -1223,6 +1224,9 @@ button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
 .card-media img.is-contain,
 .hlm-media img.is-contain,
 .modal-hero img.is-contain { object-fit: contain; background: #fff; padding: 8%; }
+.card-media img.is-contain-tight,
+.hlm-media img.is-contain-tight,
+.modal-hero img.is-contain-tight { object-fit: contain; background: var(--paper-2); transform: scale(1.08); }
 
 /* Collection badge (Capstone / Acad) on project cards */
 .card-media { position: relative; }
@@ -1253,6 +1257,28 @@ button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
 .skills-overview .eyebrow { margin-bottom: 0; }
 .skills-overview .cloud { justify-content: center; }
 
+/* ============================================================
+   MOBILE-ONLY FIXES — text containment + 2-col production grid
+   ============================================================ */
+@media (max-width: 720px) {
+  /* About: keep the bio + subrole from spilling past the viewport edge */
+  .hero-role, .hero-subrole, .hero-tagline, .hero-tagline-2 {
+    max-width: 100% !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero-subrole .nowrap { white-space: normal !important; }
+  .micro { flex-wrap: wrap; }
+  .micro span { overflow-wrap: break-word; word-break: break-word; }
+
+  /* Production Credits: 2-up grid to cut down on scrolling */
+  .events { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .event-gallery { aspect-ratio: 4 / 3; }
+  .event-body { padding: 12px 14px 14px; }
+  .event-body h3 { font-size: 0.92rem; line-height: 1.22; }
+  .event-meta, .event-note { font-size: 0.72rem; }
+}
+
 /* Skill chips — emphasised core languages + expandable sub-libraries (floating card, no layout shift) */
 .chip-bold { font-weight: 700; color: var(--ink); border-color: rgba(90,79,207,0.45); background: rgba(255,255,255,0.85); }
 .chip-expand { position: relative; display: inline-flex; align-items: center; gap: 7px; cursor: help; z-index: 1; }
@@ -1279,6 +1305,10 @@ button, a, .lb-btn, .lb-close, .hl-arrow, .hl-dot, .filter-btn,
 .chip-expand:focus-within .chip-libs { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
 .chip-expand:hover::after,
 .chip-expand:focus-within::after { opacity: 1; }
+/* Mobile: tap-to-toggle open state (mirrors :hover/:focus-within) */
+.chip-expand.is-open .chip-libs { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.chip-expand.is-open::after { opacity: 1; }
+.chip-expand.is-open { z-index: 60; }
 .chip-expand .lib {
   font-family: var(--mono); font-size: 0.7rem; padding: 3px 9px; border-radius: 999px;
   background: rgba(90,79,207,0.12); color: var(--violet-deep); white-space: nowrap;

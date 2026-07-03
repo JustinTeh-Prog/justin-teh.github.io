@@ -157,7 +157,7 @@
       period: "Completed Apr 2025",
       tags: ["Human-Centred & Product Design"],
       summary: "Designed “NestAway / Snack Overflow,” a canteen seating and passive bird-deterrence system to improve comfort in SUTD's dining environment.",
-      feature: { src: ACAD + "DTI/Auraplan_Cover.webp", alt: "Auraplan canteen seating and bird-deterrence concept" },
+      feature: { src: ACAD + "DTI/Auraplan_Cover.webp", alt: "Auraplan canteen seating and bird-deterrence concept", fit: "contain" },
       problem: "SUTD canteen users experience pain points around seating comfort, privacy, bag storage, bird disturbance, spillage, and ambiguous vacancy.",
       process: "Used design thinking and downselection to identify seating as a major touchpoint, then developed a partition-origami bird shelter concept with modular subsystems.",
       solution: "A fully integrated partitioned seating and passive bird deterrence system with storage, modular joints, privacy elements, and interactive aesthetic qualities.",
@@ -249,7 +249,7 @@
       tags: ["Sustainability", "Data & Modelling"],
       coverLabel: "",
       summary: "Compared single-use PET cups, biodegradable bamboo cups, and reusable polycarbonate cups through life-cycle analysis.",
-      feature: { src: ACAD + "LCA/Cover.webp", alt: "Life cycle analysis of disposable, biodegradable, and reusable cups" },
+      feature: { src: ACAD + "LCA/Cover.webp", alt: "Life cycle analysis of disposable, biodegradable, and reusable cups", fit: "contain" },
       problem: "Sustainable product decisions require evaluating environmental impact across material, use, and end-of-life stages rather than relying on surface-level assumptions.",
       process: "Analysed product alternatives, defined assumptions, compared energy impact, and documented life-cycle stages.",
       solution: "Built a comparative framework across material, use, and end-of-life stages with explicit functional-unit definitions.",
@@ -286,7 +286,7 @@
       tags: ["Data & Modelling"],
       coverLabel: "",
       summary: "Analysed an audiometry case through air conduction, bone conduction, masking, hearing-loss classification, and implications for speech perception.",
-      feature: { src: ACAD + "PureToneAudiometry/Cover.webp", alt: "Pure tone audiometry assessment cover" },
+      feature: { src: ACAD + "PureToneAudiometry/Cover.webp", alt: "Pure tone audiometry assessment cover", fit: "contain" },
       problem: "Audiogram interpretation requires understanding the auditory pathway, test method, and difference between conductive, sensorineural, and mixed hearing loss.",
       process: "Reviewed audiometric test principles, interpreted case results, and explained implications on speech perception and behaviour.",
       solution: "Connected air/bone conduction results and masking logic to a structured hearing-loss classification and its real-world communication impact.",
@@ -364,46 +364,46 @@
   var EVENTS = [
     { title: "The Lift", date: "29 Nov 2019", location: "TP Black Box Theatre", role: "Lighting Director",
       note: "Early lighting direction work in a black box theatre setting, focusing on atmosphere, cueing, and stage visibility.",
-      images: [{ src: ARTS + "2TheLift.jpg", alt: "The Lift production lighting" }] },
+      images: [{ src: ARTS + "2TheLift.webp", alt: "The Lift production lighting" }] },
     { title: "TPDE's Rush..", date: "30 Nov 2019", location: "TP Design Paddy Field", role: "Tech Coordinator / Lighting Director",
       note: "Semi-open, site-specific performance support involving technical coordination and lighting direction.",
       images: [
-        { src: ARTS + "3RUSH (1).jpg", alt: "Rush performance 1" },
-        { src: ARTS + "3RUSH (2).jpg", alt: "Rush performance 2" },
-        { src: ARTS + "3RUSH (3).jpg", alt: "Rush performance 3" }
+        { src: ARTS + "3RUSH (1).webp", alt: "Rush performance 1" },
+        { src: ARTS + "3RUSH (2).webp", alt: "Rush performance 2" },
+        { src: ARTS + "3RUSH (3).webp", alt: "Rush performance 3" }
       ] },
     { title: "Spectacular 2022", date: "7–14 Apr 2022", location: "TP Auditorium", role: "Lighting Director",
       note: "Large-scale auditorium production requiring lighting planning, cue execution, and coordination with performers and crew.",
       images: [
-        { src: ARTS + "4SPECTACULAR (1).jpg", alt: "Spectacular 1" },
-        { src: ARTS + "4SPECTACULAR (2).jpg", alt: "Spectacular 2" },
-        { src: ARTS + "4SPECTACULAR (3).jpg", alt: "Spectacular 3" }
+        { src: ARTS + "4SPECTACULAR (1).webp", alt: "Spectacular 1" },
+        { src: ARTS + "4SPECTACULAR (2).webp", alt: "Spectacular 2" },
+        { src: ARTS + "4SPECTACULAR (3).webp", alt: "Spectacular 3" }
       ] },
     { title: "Blissful One-Stop Wedding Show", date: "10 Jan 2025", location: "Marina Bay Sands", role: "Lighting Operator",
       note: "External event experience supporting lighting operation in a professional venue environment.",
-      images: [{ src: ARTS + "5XBOWS.jpg", alt: "Blissful Wedding Show lighting" }] },
+      images: [{ src: ARTS + "5XBOWS.webp", alt: "Blissful Wedding Show lighting" }] },
     { title: "Arts Fiesta 2025", date: "6 Jul 2025", location: "Our Tampines Hub", role: "Lighting Director",
       note: "Community-facing arts showcase experience involving lighting direction for a multi-artform event.",
-      images: [{ src: ARTS + "6ARTSFIESTA.jpg", alt: "Arts Fiesta 25 lighting" }] },
+      images: [{ src: ARTS + "6ARTSFIESTA.webp", alt: "Arts Fiesta 25 lighting" }] },
     { title: "Everything But The Brain", date: "25 Jul 2025", location: "SUTD Auditorium", role: "Lighting Director",
       note: "SUTD auditorium production organised by SUTD Drama Club of the tragicomedy by Singaporean local writer Jean Tay. Provided technical support in theatrical storytelling through audio and lighting.",
       images: [
-        { src: ARTS + "7EBTB (1).jpg", alt: "Everything But The Brain 1" },
-        { src: ARTS + "7EBTB (2).jpg", alt: "Everything But The Brain 2" }
+        { src: ARTS + "7EBTB (1).webp", alt: "Everything But The Brain 1" },
+        { src: ARTS + "7EBTB (2).webp", alt: "Everything But The Brain 2" }
       ] },
     { title: "Rockafall 2025", date: "3 Aug 2025", location: "SUTD Auditorium", role: "Lighting Director",
       note: "High-energy music event requiring responsive lighting direction, mood control, and coordination with musical performance.",
       credit: { handle: "@p____p.x", url: "https://www.instagram.com/p____p.x", prefix: "Guitarist in picture" },
       images: [
-        { src: ARTS + "8Rockafall (1).jpg", alt: "Rockafall 2025 1" },
-        { src: ARTS + "8Rockafall (2).jpg", alt: "Rockafall 2025 2" },
-        { src: ARTS + "8Rockafall (3).jpg", alt: "Rockafall 2025 3" }
+        { src: ARTS + "8Rockafall (1).webp", alt: "Rockafall 2025 1" },
+        { src: ARTS + "8Rockafall (2).webp", alt: "Rockafall 2025 2" },
+        { src: ARTS + "8Rockafall (3).webp", alt: "Rockafall 2025 3" }
       ] },
     { title: "Ori Finale 2025", date: "20 Sep 2025", location: "SUTD Indoor Sports Hall", role: "Lighting Director",
       note: "Large orientation finale production involving lighting design and show support in a non-traditional performance venue.",
       images: [
-        { src: ARTS + "9OriFinale (1).JPG", alt: "Ori Finale 25 1" },
-        { src: ARTS + "9OriFinale (2).JPG", alt: "Ori Finale 25 2" }
+        { src: ARTS + "9OriFinale (1).webp", alt: "Ori Finale 25 1" },
+        { src: ARTS + "9OriFinale (2).webp", alt: "Ori Finale 25 2" }
       ] },
     { title: "Fresh-No-More! 2026", date: "26 Jan 2026", location: "SUTD Auditorium & Campus Centre", role: "Organiser / Lighting Director",
       note: "Led a student-run sophomore celebration programme for over 250 undergraduates, endorsed by SUTD’s Head of Pillars and Office of Student Life. Oversaw programme design, logistics, publicity, event coordination, and lighting direction from planning to execution.",
@@ -413,11 +413,11 @@
         { label: "Photo Album", href: "https://www.flickr.com/photos/204192074@N02/", type: "album" }
       ],
       images: [
-        { src: ARTS + "10FNM (1).jpg", alt: "Fresh-No-More! 2026 1" },
-        { src: ARTS + "10FNM (2).jpg", alt: "Fresh-No-More! 2026 2" },
-        { src: ARTS + "10FNM (3).jpg", alt: "Fresh-No-More! 2026 3" },
-        { src: ARTS + "10FNM (4).jpg", alt: "Fresh-No-More! 2026 4" },
-        { src: ARTS + "10FNM (5).jpg", alt: "Fresh-No-More! 2026 5" }
+        { src: ARTS + "10FNM (1).webp", alt: "Fresh-No-More! 2026 1" },
+        { src: ARTS + "10FNM (2).webp", alt: "Fresh-No-More! 2026 2" },
+        { src: ARTS + "10FNM (3).webp", alt: "Fresh-No-More! 2026 3" },
+        { src: ARTS + "10FNM (4).webp", alt: "Fresh-No-More! 2026 4" },
+        { src: ARTS + "10FNM (5).webp", alt: "Fresh-No-More! 2026 5" }
       ] }
   ];
 
@@ -493,6 +493,17 @@
         cloud.appendChild(chip);
       });
     }
+    function isMobileLike() {
+      return window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    }
+    // Mobile only: tap a chip with nested libraries to toggle it open/closed
+    cloud.addEventListener("click", function (e) {
+      var chip = e.target.closest(".chip-expand");
+      if (!chip || !isMobileLike()) return;
+      var wasOpen = chip.classList.contains("is-open");
+      cloud.querySelectorAll(".chip-expand.is-open").forEach(function (c) { c.classList.remove("is-open"); });
+      chip.classList.toggle("is-open", !wasOpen);
+    });
     tabs.addEventListener("click", function (e) {
       var b = e.target.closest(".skill-tab");
       if (!b) return;
@@ -521,6 +532,12 @@
   /* ---------------------------------------------------------
      RENDER: project cards
      --------------------------------------------------------- */
+  function containClass(feature) {
+    if (!feature) return "";
+    if (feature.contain) return "is-contain";
+    if (feature.fit === "contain") return "is-contain-tight";
+    return "";
+  }
   function collectionOf(p) {
     return p.group === "featured" ? "Capstone" : p.group === "academic" ? "Acad" : "";
   }
@@ -528,7 +545,7 @@
     var badge = coll ? '<span class="card-badge coll-' + coll.toLowerCase() + '">' + coll + "</span>" : "";
     if (p.feature) {
       return '<div class="card-media' + (feature ? " is-feature" : "") + '">' +
-        imgTag(p.feature.src, p.feature.alt, p.title, p.feature.contain ? "is-contain" : "") + badge + "</div>";
+        imgTag(p.feature.src, p.feature.alt, p.title, containClass(p.feature)) + badge + "</div>";
     }
     return '<div class="card-media">' +
       (p.nda ? placeholderMarkup("Confidential — NDA", "") : placeholderMarkup(p.title, p.coverLabel)) + badge + "</div>";
@@ -715,7 +732,7 @@
     HIGHLIGHTS.forEach(function (h) {
       var p = PROJECTS.filter(function (x) { return x.id === h.id; })[0] || {};
       var media = '<div class="hlm-media">' +
-        (p.feature ? imgTag(p.feature.src, p.feature.alt, p.title, p.feature.contain ? "is-contain" : "")
+        (p.feature ? imgTag(p.feature.src, p.feature.alt, p.title, containClass(p.feature))
           : (p.nda ? placeholderMarkup("Confidential — NDA", "") : placeholderMarkup(p.title, p.coverLabel))) + "</div>";
       var card = el("article", "hlm-card reveal");
       card.setAttribute("data-open", h.id);
@@ -1060,7 +1077,7 @@
     lastFocused = document.activeElement;
 
     modalHero.innerHTML = p.feature
-      ? imgTag(p.feature.src, p.feature.alt, p.title, p.feature.contain ? "is-contain" : "")
+      ? imgTag(p.feature.src, p.feature.alt, p.title, containClass(p.feature))
       : (p.nda ? placeholderMarkup("Confidential — NDA", "") : placeholderMarkup(p.title, p.coverLabel));
 
     var evidence = "";
@@ -1140,6 +1157,29 @@
   $("#modal-close").addEventListener("click", closeModal);
   modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
 
+  // --- Mobile only: swipe-left to dismiss the expansion card ---
+  (function swipeToClose() {
+    var panel = $("#modal-panel");
+    if (!panel) return;
+    function isMobileLike() {
+      return window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    }
+    var sx = 0, sy = 0, tracking = false;
+    panel.addEventListener("touchstart", function (e) {
+      if (!isMobileLike() || e.touches.length !== 1) { tracking = false; return; }
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+      tracking = true;
+    }, { passive: true });
+    panel.addEventListener("touchend", function (e) {
+      if (!tracking) return;
+      tracking = false;
+      var t = e.changedTouches[0];
+      var dx = t.clientX - sx;
+      var dy = t.clientY - sy;
+      if (dx < -70 && Math.abs(dy) < 60) closeModal();
+    }, { passive: true });
+  })();
+
   /* ---------------------------------------------------------
      LIGHTBOX (arts galleries + evidence)
      --------------------------------------------------------- */
@@ -1149,36 +1189,54 @@
   var lbSet = [];
   var lbIndex = 0;
   var lbPreloaded = {};
+  var lbToken = 0;
 
-  // Preload every image in an album so stepping through it is instant after the
-  // first open (albums are small — 2–5 photos). Browser caches by URL, so the
-  // later showLb() assignments resolve from cache with no network wait.
+  // Preload + decode every image in an album so stepping through it is instant
+  // after the first open (albums are small — 2–5 photos). decode() moves the
+  // costly JPEG decode off the main thread so the eventual swap doesn't jank.
   function preloadSet(set) {
     if (!set) return;
     set.forEach(function (item) {
       if (!item || !item.src || lbPreloaded[item.src]) return;
       lbPreloaded[item.src] = 1;
       var im = new Image(); im.decoding = "async"; im.src = item.src;
+      if (im.decode) { im.decode().catch(function () {}); }
     });
   }
 
   function showLb() {
     if (!lbSet.length) return;
     var item = lbSet[lbIndex];
-    // If an image path is missing, drop it from this gallery and continue gracefully.
-    lbImg.onerror = function () {
-      lbImg.onerror = null;
+    var myToken = ++lbToken;   // guard against races from rapid stepping / reopening
+
+    // Caption + arrows update immediately; the image fades in once it's decoded.
+    lbCap.textContent = (item.caption || item.alt || "") + (lbSet.length > 1 ? "  ·  " + (lbIndex + 1) + " / " + lbSet.length : "");
+    var single = lbSet.length <= 1;
+    $("#lb-prev").style.display = single ? "none" : "";
+    $("#lb-next").style.display = single ? "none" : "";
+
+    // Hide the current frame so we never flash the previous album's photo.
+    lbImg.classList.add("is-loading");
+
+    var loader = new Image();
+    loader.decoding = "async";
+    function reveal() {
+      if (myToken !== lbToken) return;   // superseded by a newer navigation
+      lbImg.src = item.src;
+      lbImg.alt = item.alt || "";
+      lbImg.classList.remove("is-loading");
+    }
+    loader.onload = reveal;
+    loader.onerror = function () {
+      if (myToken !== lbToken) return;
+      // Missing image: drop it from this gallery and continue gracefully.
       lbSet.splice(lbIndex, 1);
       if (!lbSet.length) { closeLightbox(); return; }
       lbIndex = lbIndex % lbSet.length;
       showLb();
     };
-    lbImg.src = item.src;
-    lbImg.alt = item.alt || "";
-    lbCap.textContent = (item.caption || item.alt || "") + (lbSet.length > 1 ? "  ·  " + (lbIndex + 1) + " / " + lbSet.length : "");
-    var single = lbSet.length <= 1;
-    $("#lb-prev").style.display = single ? "none" : "";
-    $("#lb-next").style.display = single ? "none" : "";
+    loader.src = item.src;
+    if (loader.decode) { loader.decode().then(reveal).catch(function () {}); }
   }
   function openLightbox(set, idx) {
     lbSet = set.slice(); lbIndex = idx || 0;   // copy so we never mutate source data
