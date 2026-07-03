@@ -1176,7 +1176,6 @@
     if (btn) openModal(btn.getAttribute("data-open"));
   });
   $("#modal-close").addEventListener("click", closeModal);
-  $("#modal-back").addEventListener("click", closeModal);
   modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
 
   // --- Mobile only: swipe-left to dismiss the expansion card ---
@@ -1208,9 +1207,9 @@
         decided = true;
         horizontal = Math.abs(dx) > Math.abs(dy);   // lock to the dominant axis
       }
-      // Only hijack the gesture for a leftward, horizontally-dominant swipe;
-      // otherwise leave vertical scrolling untouched.
-      if (decided && horizontal && dx < 0) {
+      // Hijack the gesture for a horizontally-dominant swipe in either
+      // direction; otherwise leave vertical scrolling untouched.
+      if (decided && horizontal) {
         panel.style.transform = "translateX(" + dx + "px)";
       }
     }, { passive: true });
@@ -1222,7 +1221,7 @@
     panel.addEventListener("touchend", function () {
       if (!tracking) return;
       tracking = false;
-      if (decided && horizontal && dx < -70) {
+      if (decided && horizontal && Math.abs(dx) > 70) {
         closeModal();
         reset(false);
       } else {
