@@ -107,7 +107,7 @@
         { src: IADL + "IADL (1).jpeg", alt: "IADL device prototype and setup", caption: "Prototype & setup" },
         { src: IADL + "IADL (2).webp", alt: "IADL interface and data capture", caption: "Interface / data capture" },
         { src: IADL + "IADL (3).webp", alt: "IADL motion tracking detail", caption: "Motion tracking detail" },
-        { src: IADL + "IP2SG_Inbox.jpeg", alt: "Patent-related filing evidence via IP2SG", caption: "Patent filing evidence (IP2SG)" }
+        { src: IADL + "IP2SG_Inbox.webp", alt: "Patent-related filing evidence via IP2SG", caption: "Patent filing evidence (IP2SG)" }
       ],
       links: [
         { label: "GitHub repository", href: "https://github.com/JustinTeh-Prog/InteractiveAssessmentRehabitation" },
