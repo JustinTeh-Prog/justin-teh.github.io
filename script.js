@@ -13,6 +13,23 @@
   "use strict";
 
   /* ---------------------------------------------------------
+     Clean-URL redirect — if the site is opened via the raw
+     GitHub Pages host, send visitors to the custom domain so
+     the address bar reads justinteh.com instead of the long
+     *.github.io/justin-teh.github.io/ path.
+     --------------------------------------------------------- */
+  (function redirectToCleanUrl() {
+    try {
+      var host = window.location.hostname;
+      if (/github\.io$/i.test(host)) {
+        var target = "https://justinteh.com" +
+          window.location.search + window.location.hash;
+        window.location.replace(target);
+      }
+    } catch (e) { /* no-op */ }
+  })();
+
+  /* ---------------------------------------------------------
      Graceful image handling — if a path is wrong/missing,
      swap in a tasteful placeholder instead of a broken icon.
      --------------------------------------------------------- */
@@ -97,8 +114,8 @@
       summary: "An assistive rehabilitation assessment device that captures motion and force data during activities of daily living through sensor integration, computer vision, and an interactive game-based interface.",
       feature: { src: IADL + "IADL_Cover.webp", alt: "Interactive IADL rehabilitation device in use" },
       problem: "Traditional rehabilitation assessments can rely heavily on qualitative observation. This project explored how motion and force data could be captured more objectively during activities of daily living, supporting therapists with clearer performance records across sessions.",
-      process: "Worked as part of a Biomedical Engineering major project team to develop and integrate sensing, motion capture, GUI, and data recording components. The project involved iterative hardware improvement, marker detection refinement, data acquisition, and interface development.",
-      solution: "Combined wearable force sensing and environmental computer vision. The system used Force Sensitive Resistors with silicone padding, HC-05 serial communication, OpenCV marker tracking, Pygame for the augmented game task, Tkinter GUI, Matplotlib visualisation, and SQLite3 for local patient records and assessment playback.",
+      process: "Worked as the Software Lead for a Biomedical Engineering major project team to develop and integrate sensing, motion capture, GUI, and data recording components. Justin was involved with the iterative development of the Desktop App GUI and local SQL data management, Pygame augmented game, Computer Vision detection with coloured markers.",
+      solution: "Combined wearable force sensing and environmental computer vision. The system used Force Sensitive Resistors with silicone padding, HC-05 serial communication, OpenCV marker tracking, Pygame for the augmented game task, Tkinter GUI, Matplotlib visualisation for patient rehabitation performance review, and SQLite3 for local patient records and assessment playback.",
       stack: ["OpenCV", "Pygame", "Tkinter", "SQLite3", "Matplotlib", "Force Sensitive Resistors", "HC-05", "Motion Tracking", "GUI Development", "Rehabilitation Technology"],
       results: "The project achieved objective motion and force data capture for an interactive rehabilitation task, improved force sensing accuracy to approximately ±0.5 N, explored electroluminescent marker improvements for better tracking, and supported a patent filing through IP2SG. The project was also presented in the ARTSIC context.",
       demonstrates: "Assistive technology development, sensor integration, computer vision, rehabilitation-focused design, and the ability to translate a biomedical problem into a working prototype.",
@@ -107,7 +124,7 @@
         { src: IADL + "IADL (1).jpeg", alt: "IADL device prototype and setup", caption: "Prototype & setup" },
         { src: IADL + "IADL (2).webp", alt: "IADL interface and data capture", caption: "Interface / data capture" },
         { src: IADL + "IADL (3).webp", alt: "IADL motion tracking detail", caption: "Motion tracking detail" },
-        { src: IADL + "IP2SG_Inbox.webp", alt: "Patent-related filing evidence via IP2SG", caption: "Patent filing evidence (IP2SG)" }
+        { src: IADL + "IP2SG_Inbox.jpeg", alt: "Patent-related filing evidence via IP2SG", caption: "Patent filing evidence (IP2SG)" }
       ],
       links: [
         { label: "GitHub repository", href: "https://github.com/JustinTeh-Prog/InteractiveAssessmentRehabitation" },
@@ -129,7 +146,9 @@
       demonstrates: "Industrial-grade software engineering, IoT data pipelines, and disciplined documentation under research and confidentiality constraints.",
       nda: "Project visuals are not disclosed due to confidentiality and NDA considerations. Technical stack and high-level responsibilities are shown for portfolio context.",
       evidence: [],
-      links: []
+      links: [
+        { label: "Lab Assistance Publication on Waveguide Research", href: "https://www.researchgate.net/publication/369360220_Reduction_of_Ge-on-Si_waveguide_propagation_loss_by_laser_and_hydrogen_annealing" }
+      ]
     },
 
     /* ---------- ACADEMIC (ordered by complexity) ---------- */
@@ -369,7 +388,7 @@
       note: "Early lighting direction work in a black box theatre setting, focusing on atmosphere, cueing, and stage visibility.",
       images: [{ src: ARTS + "2TheLift.webp", alt: "The Lift production lighting" }] },
     { title: "TPDE's Rush..", date: "30 Nov 2019", location: "TP Design Paddy Field", role: "Tech Coordinator / Lighting Director",
-      note: "Semi-open, site-specific performance support involving technical coordination and lighting direction.",
+      note: "Semi-open, site-specific performance support involving technical coordination and lighting direction. Justin operating the Avolite Tiger Touch in Picture 2.",
       images: [
         { src: ARTS + "3RUSH (1).webp", alt: "Rush performance 1" },
         { src: ARTS + "3RUSH (2).webp", alt: "Rush performance 2" },
