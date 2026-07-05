@@ -13,23 +13,6 @@
   "use strict";
 
   /* ---------------------------------------------------------
-     Clean-URL redirect — if the site is opened via the raw
-     GitHub Pages host, send visitors to the custom domain so
-     the address bar reads justinteh.com instead of the long
-     *.github.io/justin-teh.github.io/ path.
-     --------------------------------------------------------- */
-  (function redirectToCleanUrl() {
-    try {
-      var host = window.location.hostname;
-      if (/github\.io$/i.test(host)) {
-        var target = "https://justinteh.com" +
-          window.location.search + window.location.hash;
-        window.location.replace(target);
-      }
-    } catch (e) { /* no-op */ }
-  })();
-
-  /* ---------------------------------------------------------
      Graceful image handling — if a path is wrong/missing,
      swap in a tasteful placeholder instead of a broken icon.
      --------------------------------------------------------- */
