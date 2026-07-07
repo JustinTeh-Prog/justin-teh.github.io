@@ -621,6 +621,72 @@
   renderInto("cards-internship", ["internship"]);
 
   /* ---------------------------------------------------------
+     RENDER: Awards & accolades
+     --------------------------------------------------------- */
+  var AWARDS = [
+    {
+      title: "A*STAR Science Award (Polytechnic)",
+      eyebrow: "A*STAR · 2020",
+      img: "assets/Accolades/ASTARScienceAward2020.webp",
+      alt: "A*STAR Science Award (Polytechnic) certificate",
+      desc: "Conferred to Singaporean Polytechnic students who demonstrate particularly strong aptitude and interest in mathematics and science, to spur their passion in scientific research and development."
+    },
+    {
+      title: "Temasek Polytechnic Smitech Asia Prize",
+      eyebrow: "Temasek Polytechnic · AY21/22",
+      img: "assets/Accolades/Poly_SmitechAward.webp",
+      alt: "Temasek Polytechnic Smitech Asia Prize certificate",
+      desc: "Conferred to the best student of the subject Audiometry and Hearing Device in AY21/22."
+    },
+    {
+      title: "Temasek CCA Silver Award",
+      eyebrow: "Temasek Polytechnic · 2022",
+      img: "assets/Accolades/TPCCASilverAward.webp",
+      alt: "Temasek CCA Silver Award certificate",
+      desc: "A pinnacle non-academic accolade presented annually, recognising and honouring students who have demonstrated exemplary leadership, resilience, and outstanding dedication to their Co-Curricular Activities (CCAs) across the arts, sports, and community service domains."
+    },
+    {
+      title: "SUTD Student Service Excellence Award (Individual)",
+      eyebrow: "SUTD · 2026",
+      img: "assets/Accolades/SAA26ServiceExcellence.webp",
+      alt: "SUTD Student Service Excellence Award (Individual) certificate",
+      desc: "Recognises students who contribute significantly to the interests and/or welfare of the university community and enhance the quality of campus life."
+    }
+  ];
+  (function renderAwards() {
+    var host = document.getElementById("cards-awards");
+    if (!host) return;
+    host.innerHTML = AWARDS.map(function (a, i) {
+      return '<article class="card award reveal" tabindex="0" role="button" ' +
+        'data-award="' + i + '" aria-label="View ' + escHtml(a.title) + ' certificate">' +
+        '<div class="card-media award-media">' +
+          imgTag(a.img, a.alt, a.title, "is-contain") +
+        "</div>" +
+        '<div class="card-body">' +
+          '<span class="card-eyebrow">' + escHtml(a.eyebrow) + "</span>" +
+          "<h3>" + escHtml(a.title) + "</h3>" +
+          '<p class="card-tagline">' + escHtml(a.desc) + "</p>" +
+        "</div>" +
+      "</article>";
+    }).join("");
+
+    function openAward(node) {
+      if (!node) return;
+      var a = AWARDS[+node.dataset.award];
+      openLightbox([{ src: a.img, caption: a.title }], 0);
+    }
+    host.addEventListener("click", function (e) {
+      openAward(e.target.closest(".award"));
+    });
+    host.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openAward(e.target.closest(".award"));
+      }
+    });
+  })();
+
+  /* ---------------------------------------------------------
      RENDER: Highlights — interactive sliding gallery
      --------------------------------------------------------- */
   var HIGHLIGHTS = [
@@ -1016,7 +1082,7 @@
   var navList = $("#navlist");
   var navToggle = $(".nav-toggle");
   var navEl = document.querySelector(".site-nav");
-  var sectionIds = ["about", "exchange", "projects", "internship", "arts", "contact"];
+  var sectionIds = ["about", "exchange", "projects", "internship", "arts", "awards", "contact"];
 
   function navOffset() { return (navEl ? navEl.offsetHeight : 70) + 14; }
   function scrollToId(id) {
