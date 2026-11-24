@@ -1,0 +1,15 @@
+# Repo files that are not part of the public site (index.html, style.css, script.js,
+# favicon.ico, arts/ and assets/). Vercel documents .vercelignore for CLI deploys; for
+# GitHub-triggered deploys, .gitignore is what reliably keeps files off the site, so
+# nothing sensitive relies on this list. None of these files hold personal data.
+
+screenshots/
+archive/
+.thumbnail
+rmit-portfolio/
+.impeccable/
+DESIGN.md
+PRODUCT.md
+README.md
+portfolio_prompt.md
+assets/raw/

@@ -9,23 +9,39 @@ A static, single-page portfolio site built with **HTML, CSS, and vanilla JavaScr
 ├── index.html          # Markup: nav + 4 tab panels + modal/lightbox shells
 ├── style.css           # Design system (glass / neumorphic, organic accents)
 ├── script.js           # Tabs, filtering, modal, lightbox, content data
+├── favicon.ico
+├── arts/               # Standalone Arts page at /arts
+│   ├── index.html
+│   ├── arts.css
+│   ├── arts.js
+│   └── arts-data.js    # Production credits, video work, roles (edit content here)
+├── PRODUCT.md          # Product truth used by the Impeccable design skill
 ├── portfolio_prompt.md # Source brief
 ├── README.md
 └── assets/
     ├── Personal/        # Portrait
-    ├── Project1_IADL/   # IADL device evidence (+ ARTSIC certificate PDF)
     ├── Acad/            # Academic project posters
-    ├── Arts/            # Production photos
-    ├── Exchange/        # Exchange / internship photos
-    └── Internship/      # (reserved)
+    ├── Accolades/       # Award certificates
+    ├── Arts/            # Production photos (originals)
+    │   ├── web/         # 1600px / 640px copies used by /arts
+    │   └── video/       # Frame grabs from DMPC video work
+    ├── Exchange/        # Exchange photos
+    ├── Icons/           # JT favicon (SVG + PNG)
+    ├── Intern/          # Internship photos
+    └── Resume/          # Web-safe résumé PDF (no phone number or referees)
 ```
 
-## Tabs
+## Sections
 
-1. **About Me** — hero, narrative, micro-facts, technical + creative skill clouds
-2. **Compiled Portfolio** — flagship + academic + global-exchange projects with focus-area filtering and a detail drawer per project
-3. **Arts Portfolio** — production credits with image galleries (lightbox)
-4. **Contact** — email + LinkedIn
+1. **About Me** — hero, narrative, micro-facts, highlights
+2. **Exchange, Projects, Internship** — project cards with focus-area filtering and a detail drawer per project
+3. **Arts** — intro card on the main page, linking to the full Arts page at `/arts`
+4. **Awards** — certificates in a lightbox
+5. **Contact** — email, LinkedIn, résumé, and Core Skillsets (skills link to the work that shows them)
+
+## Arts page (`/arts`)
+
+The production story told in five acts (2019–2026). The page ground re-lights act by act, a role filter highlights the Organiser credit, and deep links such as `/arts/#rockafall-2025` land on a single production.
 
 ## Notes on image paths
 

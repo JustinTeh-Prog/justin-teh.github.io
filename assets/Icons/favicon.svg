@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>JT</title>
+  <rect width="64" height="64" rx="15" fill="#221f2b"/>
+  <!-- T crossbar doubles as a lighting batten -->
+  <path d="M14 19h36" stroke="#d2784a" stroke-width="6.5" stroke-linecap="round"/>
+  <!-- shared stem: the T's upright curls into the J's hook -->
+  <path d="M37 19v20.5a10 10 0 0 1-20 0" fill="none" stroke="#f4f0e8" stroke-width="6.5" stroke-linecap="round"/>
+  <circle cx="47.5" cy="45.5" r="3.6" fill="#5a4fcf"/>
+</svg>

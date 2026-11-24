@@ -6,3 +6,27 @@ assets/raw/
 *.mp4
 *.mov
 *_raw.*
+
+# RMIT application portfolio: private builds and their image sources. The RMIT copies
+# keep teammates' names and faces; the public version is assets/Portfolio/.
+# The build scripts and HTML in rmit-portfolio/ are still tracked.
+rmit-portfolio/*.pdf
+rmit-portfolio/*.png
+rmit-portfolio/img/
+
+# Old design-reference screenshots (one shows other students); kept locally only
+uploads/
+
+# Full-size Arts originals: only rmit-portfolio/prep_images.py reads them; the site
+# loads the resized copies in assets/Arts/web/. Kept locally, not deployed.
+assets/Arts/*.webp
+!assets/Arts/1Leadership.webp
+!assets/Arts/1Lights.webp
+assets/Arts/video/oh21-salvo.webp
+
+# Python and OS clutter
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -7,7 +7,11 @@
   <meta name="description" content="Justin Teh — Creative Technologist. Computer Science & Design student blending software, AI, IoT, human-centred design and live arts production." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/Icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/Icons/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/Icons/apple-touch-icon.png" />
+  <meta name="theme-color" content="#f4f0e8" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <!-- Organic background layers -->
@@ -61,7 +65,7 @@
             </ul>
           </div>
           <div class="hero-portrait">
-            <img src="assets/Personal/Personal (2).JPG" alt="Portrait of Justin Teh" loading="eager" fetchpriority="high" decoding="async" />
+            <img src="assets/Personal/Portrait.webp" width="1200" height="1600" alt="Portrait of Justin Teh" loading="eager" fetchpriority="high" decoding="async" />
           </div>
         </div>
 
@@ -92,7 +96,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Tech Portfolio</span>
-          <h2 class="section-title" id="projects-h">Selected Work &amp; Projects</h2>
+          <h2 class="section-title" id="projects-h">All Academic Work &amp; Projects</h2>
         </div>
 
         <div class="filters reveal" id="filters" role="group" aria-label="Filter projects"></div>
@@ -126,11 +130,11 @@
             <img src="assets/Arts/1Lights.webp" alt="Stage lighting rig during a live production" loading="lazy" onerror="this.onerror=null;this.src='assets/Arts/1Lights.jpg';" />
           </div>
           <div class="arts-skills" id="arts-skills"></div>
+          <a class="arts-cta" href="arts/">
+            <span>Enter the Arts portfolio<small>Every production credit, stage and screen, 2019&ndash;2026</small></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
-
-        <h3 class="subhead reveal">Production Credits</h3>
-        <div class="role-filters reveal" id="role-filters" role="group" aria-label="Filter production credits by role"></div>
-        <div class="events" id="events-grid"></div>
       </div>
     </section>
 
@@ -169,6 +173,24 @@
               <span>
                 <span class="c-label">LinkedIn</span><br />
                 <span class="c-value">Teh Nian Hong, Justin</span>
+              </span>
+            </a>
+            <a class="contact-box contact-resume" href="assets/Resume/Justin_Teh_Resume.pdf" target="_blank" rel="noopener">
+              <span class="contact-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
+              </span>
+              <span>
+                <span class="c-label">R&eacute;sum&eacute; &middot; PDF</span><br />
+                <span class="c-value">Two-page summary</span>
+              </span>
+            </a>
+            <a class="contact-box contact-portfolio" href="assets/Portfolio/Justin_Teh_Portfolio.pdf" target="_blank" rel="noopener">
+              <span class="contact-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"></path><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"></path><path d="M7 8h1.5M15.5 8H17M7 11.5h1.5M15.5 11.5H17"></path></svg>
+              </span>
+              <span>
+                <span class="c-label">Portfolio &middot; PDF</span><br />
+                <span class="c-value">Selected works, 20 pages</span>
               </span>
             </a>
           </div>
@@ -217,6 +239,6 @@
 
   <button class="to-top" id="to-top" aria-label="Back to top">↑</button>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=10" defer></script>
 </body>
 </html>
